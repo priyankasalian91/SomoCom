@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org./1999/xhtml" xmlns:sec="http://www.w3.org./1999/xhtml">
+<head th:fragment="common-header">
+<meta charset="UTF-8">
+<meta name="description" content="Somodesk is a B2B and B2C e-commerce platform with a difference. Sell more with a trusted Affiliate network">
+<meta name="keywords" content="Affiliate franchisee e-commerce Somodesk B2B B2C INDIA unique products">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Somodesk E-commerce Site</title> 
+   <link rel="icon" href="/image/logos/somodesk-logo.png" type="image/png"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <!-- new microsite css-->
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="/css_brand/owl.carousel.min.css">
+    <link rel="stylesheet" href="/css_brand/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/css_brand/magnific-popup.css">
+    <link rel="stylesheet" href="/css_brand/aos.css">
+    <link rel="stylesheet" href="/css_brand/style.css" type="text/css">
+    <link rel="stylesheet" href="/css_brand/ionicons.min.css">
+    <link rel="stylesheet" href="/css_brand/flaticon.css">
+    <link rel="stylesheet" href="/css_brand/icomoon.css">
+    <link rel="stylesheet" href="/css_brand/style.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css_brand/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="/css_brand/animate.css">
+    
+    <!-- old -->
+    <link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css">    
+    <link rel="stylesheet" href="/css/elegant-icons.css" type="text/css">
+    <style>
+     ul.breadcrumb {
+	  background-color: #ffffff;
+	}
+    </style>
+</head>
+
+
+<body> 
+   <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light site-navbar-target" id="ftco-navbar" th:fragment="navbar">
+	    <div class="container">
+       <a class="logo" href="/"><img src="/image/logos/somodesk-logo.png" alt="LOGO" style="width:50px;height:40px"><img src="/image/logos/somodesk-txt3.png" alt="NAME"></a>
+	      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	  
+	        <ul class="navbar-nav nav">
+	          <li class="nav-item"><a href="#home-section" class="nav-link"><span>Home</span></a></li>
+	          <li class="nav-item"><a href="#services-section" class="nav-link"><span>Store</span></a></li>
+			 <!--  <li class="nav-item"><a sec:authorize="isAuthenticated()" href="/af/aff_index" class="nav-link">Affiliate</a></li>-->
+			  <li class="nav-item"><a sec:authorize="hasRole('ADMIN')"  href="/article/article-list" class="nav-link"> ADMIN PORTAL</a></li>
+			  <li class="nav-item"><a sec:authorize="isAnonymous()" href="/ecom_login" class="nav-link">Login</a>
+			  <li class="nav-item"><a sec:authorize="isAuthenticated()" href="/logout" class="nav-link"> Log Out </a>
+			  <!-- <li  class="nav-item"><span class="icon_search search-switch nav-link"></span></li>-->
+			  <li class="nav-item"><a href="/wip" class="nav-link"><span class="icon_heart_alt"></span></a></li>
+			  <li class="nav-item"><a href="/shopping-cart/cart" th:if="${shoppingCartItemNumber} > 0" class="nav-link">
+				<span class="icon_bag_alt"></span>
+				<span class="tip" th:text="${shoppingCartItemNumber}"></span></a></li>
+			   <li class="nav-item" sec:authorize="isAuthenticated()"><a href="/my-profile" class="nav-link"><i class="fa fa-user"></i></a></li>
+			 </ul>
+			
+			</div>
+	      </div>
+	 
+	  </nav>
+
+<!-- Footer -->
+<footer  class="footer" th:fragment="footer">
+<!-- footer class="page-footer font-small unique-color-dark"-->
+  <!-- div style="background-color: #6351ce;">
+    <div class="container">
+      <!-- Grid row-->
+      <!-- div class="row py-4 d-flex align-items-center">
+        <!-- Grid column -->
+        <!--div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
+          <h6 class="mb-0">Get connected with us on social networks!</h6>
+        </div>
+        <!-- Grid column -->
+        <!-- Grid column -->
+        <!--div class="col-md-6 col-lg-7 text-center text-md-right">
+          <!-- Facebook -->
+          <!--a class="fb-ic">
+            <i class="fab fa-facebook-f white-text mr-4"> </i>
+          </a>
+          <!-- Twitter -->
+          <!--a class="tw-ic">
+            <i class="fab fa-twitter white-text mr-4"> </i>
+          </a>
+          <!-- Google +-->
+          <!--a class="gplus-ic">
+            <i class="fab fa-google-plus-g white-text mr-4"> </i>
+          </a>
+          <!--Linkedin -->
+          <!--a class="li-ic">
+            <i class="fab fa-linkedin-in white-text mr-4"> </i>
+          </a>
+          <!--Instagram-->
+          <!--a class="ins-ic">
+            <i class="fab fa-instagram white-text"> </i>
+          </a>
+        </div>
+        <!-- Grid column -->
+      <!--/div>
+      <!-- Grid row-->
+    <!--/div>
+  </div-->
+
+  <!-- Footer Links -->
+  <div class="container text-center text-md-left mt-5">
+    <!-- Grid row -->
+    <div class="row mt-3">
+      <!-- Grid column -->
+      <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+        <!-- Content -->
+        <span class="logo"><img src="/image/logos/somodesk-txt3.png" alt="NAME"></span>
+        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <p>Somodesk offers you much more than an e-commerce business experience.</p>
+      </div>
+      <!-- Grid column -->
+      <!-- Grid column -->
+      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+        <!-- Links -->
+        <h6 class="text-uppercase font-weight-bold">Quick Links</h6>
+        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <p><a th:href="@{/aboutus}">About</a></p>
+		<p><a th:href="@{/contactus}">Contact</a></p>
+		<p><a th:href="@{/my-profile}">My Account</a></p>
+		<p><a th:href="@{/my-orders}">Orders Tracking</a></p>
+		<p><a th:href="@{/checkout}">Checkout</a></p>
+		<p><a th:href="@{/wip}">Wishlist</a></p>
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+        <!-- Policies -->
+        <h6 class="text-uppercase font-weight-bold">Policies</h6>
+        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">      	
+		<p><a th:href="@{/privacy-policy}">Privacy Policy</a></p>
+		<p><a th:href="@{/cookie-policy}">Cookie Policy</a></p>
+		<p><a th:href="@{/terms}">Terms and Conditions</a></p>
+		<p><a th:href="@{/shipping-policy}">Shipping Policy</a></p>
+		<p><a th:href="@{/return-policy}">Return Policy</a></p>	
+      </div>
+      <!-- Grid column -->
+      <!-- Grid column -->
+      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+        <!-- Contact -->
+        <h6 class="text-uppercase font-weight-bold">Contact</h6>
+        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <p><i class="fa fa-home mr-3"></i> One BKC,Bandra Kurla Complex,Bandra East, Mumbai- 400051. India.</p>
+        <p><i class="fa fa-envelope mr-3"></i> info@somodesk.com</p>
+        <!-- p><i class="fa fa-phone mr-3"></i> + 01 234 567 88</p>
+        <p><i class="fa fa-print mr-3"></i> + 01 234 567 89</p-->
+      </div>
+      <!-- Grid column -->
+    </div>
+    <!-- Grid row -->
+  </div>
+  <!-- Footer Links -->
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:<a href="https://somodesk.com/"> Somodesk.com</a> </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
+
+
+
+  <div th:fragment="body-scripts">
+    <!-- old -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+     <script>
+      window.jQuery
+          || document
+              .write('<script src="/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')
+    </script>
+  
+	 <!-- new  -->
+	<script src="/js/jquery-3.3.1.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/jquery.magnific-popup.min.js"></script>
+	<script src="/js/jquery-ui.min.js"></script>
+	<script src="/js/mixitup.min.js"></script>
+	<script src="/js/jquery.countdown.min.js"></script>
+	<script src="/js/jquery.slicknav.js"></script>
+	<script src="/js/owl.carousel.min.js"></script>
+	<script src="/js/jquery.nicescroll.min.js"></script>
+	<script src="/js/main2.js"></script>
+   <!-- old  -->
+   <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/datatables.min.js"></script>
+    <script src="/js/tagsinput.js"></script>
+    <script>feather.replace()</script>
+    <script type="text/javascript" src="/js/jquery.simplePagination.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script>
+    //prevent multiple form submission
+    $(function() {
+      $('form').submit(function(){
+        $("button[type='submit']", this)
+          .text("Please Wait...")
+          .attr('disabled', 'disabled');
+        return true;
+      });
+    });
+    </script>
+    
+
+  </div>
+
+</body>
+
+</html>

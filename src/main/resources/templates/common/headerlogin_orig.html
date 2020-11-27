@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org./1999/xhtml" xmlns:sec="http://www.w3.org./1999/xhtml">
+<head th:fragment="common-header">
+<meta charset="UTF-8">
+<meta name="description" content="Somodesk is a B2B and B2C e-commerce platform with a difference. Sell more with a trusted Affiliate network">
+<meta name="keywords" content="Affiliate franchisee e-commerce Somodesk B2B B2C INDIA unique products">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Somodesk.com - Affliate E-commerce Network</title>
+
+ <link rel="icon">   
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Nunito|Roboto|Roboto+Condensed|Roboto+Slab" rel="stylesheet">  
+  <!-- Bootstrap core CSS -->
+  <link href="/css/bootstrap.min.css" rel="stylesheet">  
+  <!-- Tables plugin -->
+  <link href="/css/datatables.min.css" rel="stylesheet">  
+  <!-- Bootstrap tagsinput -->
+  <link href="/css/tagsinput.css" rel="stylesheet">  
+  <!-- Simple pagination -->
+  <link href="/css/simplePagination.css" rel="stylesheet" />  
+  <link href="/css/carousel.css" rel="stylesheet" />  
+  <!-- Slick carousel -->  
+  <link href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" rel="stylesheet" />      
+  <link href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" rel="stylesheet" />      
+  <!-- Custom styles -->
+   <link href="/css/style.css" rel="stylesheet">
+  <!-- Feather icons -->
+  <script src="https://unpkg.com/feather-icons"></script>  
+   <!-- currency icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
+  <!-- wizard  -->
+  <!--  <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="/css/bd-wizard.css"> -->
+  
+  
+  <!-- new -->
+<link href="https://fonts.googleapis.com/css2?family=Cookie&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+<!-- link rel="stylesheet" href="/cssn/bootstrap.min.css" type="text/css" -->
+<link rel="stylesheet" href="/css/font-awesome.min.css" type="text/css">
+<link rel="stylesheet" href="/css/elegant-icons.css" type="text/css">
+<link rel="stylesheet" href="/css/jquery-ui.min.css" type="text/css">
+<link rel="stylesheet" href="/css/magnific-popup.css" type="text/css">
+<link rel="stylesheet" href="/css/owl.carousel.min.css" type="text/css">
+<link rel="stylesheet" href="/css/slicknav.min.css" type="text/css">
+<link rel="stylesheet" href="/css/stylen.css" type="text/css">
+  
+  
+   <!-- image zoom -->
+  <link href="/css/img-zoom.css"  rel="stylesheet" type="text/css">
+</head>
+
+
+<body>
+<header class="header" th:fragment="navbar">
+  <div class="offcanvas-menu-overlay"></div>
+		<div class="offcanvas-menu-wrapper">
+			<div class="offcanvas__close">+</div>
+			<ul class="offcanvas__widget">
+			<li><span class="icon_search search-switch"></span></li>
+			<li><a href="#"><span class="icon_heart_alt"></span>
+			<span class="tip">2</span>
+			</a></li>
+			<li><a href="#"><span class="icon_bag_alt"></span>
+			<span class="tip">2</span>
+			</a></li>
+			</ul>
+			<div class="offcanvas__logo">
+				<a href="/"><img src="/img/logo.png" alt=""></a>
+			</div>
+			<div id="mobile-menu-wrap"></div>
+			<div class="offcanvas__auth">
+				<a href="/ecom_login">Login</a>
+				<!-- a href="#">Register</a-->
+			</div>
+		</div>
+
+	
+
+<div class="container-fluid">
+<div class="row">
+<div class="col-xl-3 col-lg-2">
+<div class="header__logo">
+<!-- <a href="/"><img src="/img/logo.png" alt=""></a>-->
+	<a class="navbar-brand" href="/">ALBERTSONS INTERNATIONAL</a>
+</div>
+</div>
+<div class="col-xl-6 col-lg-7">
+<nav class="header__menu">
+<ul>
+<li class="active"><a href="/">Home</a></li>
+<li><a href="/brands">Brands</a></li>
+ <!-- <li><a href="/af/aff_index">Affiliate</a></li> -->
+</ul>
+</nav>
+</div>
+</div>
+<div class="canvas__open">
+<i class="fa fa-bars"></i>
+</div>
+</div>
+</header>
+
+ 
+	<footer class="footer" th:fragment="footer">
+	<div class="container">
+	<div class="row">
+	<div class="col-lg-4 col-md-6 col-sm-7">
+	<div class="footer__about">
+	<div class="footer__logo">
+	 <a href="/"><img src="/img/logo.png" alt=""></a> 
+	<!--a class="navbar-brand" href="/">ALBERTSONS INTERNATIONAL</a>-->
+	</div>
+	<p>Albertsons International Private Ltd</p>
+	<div class="footer__payment">
+	<!-- <a href="#"><img src="/img/payment/payment-1.png" alt=""></a>
+	<a href="#"><img src="/img/payment/payment-2.png" alt=""></a> -->
+	</div>
+	</div>
+	</div>
+	<div class="col-lg-2 col-md-3 col-sm-5">
+	<div class="footer__widget">
+	<h6>Quick links</h6>
+	<ul>
+	<li><a th:href="@{/wip}">About</a></li>
+	<!-- <li><a href="#">Blogs</a></li>-->
+	<li><a href="#">Contact</a></li>
+	<!-- <li><a href="@{/wip}">FAQ</a></li> -->
+	</ul>
+	</div>
+	</div>
+	<div class="col-lg-2 col-md-3 col-sm-4">
+	<div class="footer__widget">
+	<h6>Account</h6>
+	<ul>
+	<li><a href="/my-profile">My Account</a></li>
+	<li><a href="/my-orders">Orders Tracking</a></li>
+	<li><a href="/checkout">Checkout</a></li>
+	<li><a href="@{/wip}">Wishlist</a></li>
+	</ul>
+	</div>
+	</div>
+	<div class="col-lg-4 col-md-8 col-sm-8">
+	<!-- <div class="footer__newslatter">
+	<h6>NEWSLETTER</h6>
+	<form action="#">
+	<input type="text" placeholder="Email">
+	<button type="submit" class="site-btn">Subscribe</button>
+	</form>
+	<div class="footer__social">
+	 <a href="#"><i class="fa fa-facebook"></i></a>
+	<a href="#"><i class="fa fa-twitter"></i></a>
+	<a href="#"><i class="fa fa-youtube-play"></i></a>
+	<a href="#"><i class="fa fa-instagram"></i></a>
+	<a href="#"><i class="fa fa-pinterest"></i></a>
+	</div>
+	</div> -->
+	</div>
+	</div>
+	<div class="row">
+	<div class="col-lg-12">
+	
+	<div class="footer__copyright__text">
+	</div>
+	
+	</div>
+	</div>
+	</div>
+	</footer>
+
+
+
+  <div th:fragment="body-scripts">
+    <!-- old -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+     <script>
+      window.jQuery
+          || document
+              .write('<script src="/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')
+    </script>
+  
+	 <!-- new  -->
+	<script src="/js/jquery-3.3.1.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/jquery.magnific-popup.min.js"></script>
+	<script src="/js/jquery-ui.min.js"></script>
+	<script src="/js/mixitup.min.js"></script>
+	<script src="/js/jquery.countdown.min.js"></script>
+	<script src="/js/jquery.slicknav.js"></script>
+	<script src="/js/owl.carousel.min.js"></script>
+	<script src="/js/jquery.nicescroll.min.js"></script>
+	<script src="/js/main2.js"></script>
+   <!-- old  -->
+   <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/datatables.min.js"></script>
+    <script src="/js/tagsinput.js"></script>
+    <script>feather.replace()</script>
+    <script type="text/javascript" src="/js/jquery.simplePagination.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script>
+    //prevent multiple form submission
+    $(function() {
+      $('form').submit(function(){
+        $("button[type='submit']", this)
+          .text("Please Wait...")
+          .attr('disabled', 'disabled');
+        return true;
+      });
+    });
+    </script>
+    
+
+  </div>
+
+</body>
+
+</html>

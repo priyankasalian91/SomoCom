@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org./1999/xhtml" xmlns:sec="http://www.w3.org./1999/xhtml">
+<meta charset = "utf-8" /> 
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<meta name="description" content="Somodesk is a B2B and B2C e-commerce platform with a difference. Sell more with a trusted Affiliate network">
+<meta name="keywords" content="Affiliate franchisee e-commerce Somodesk B2B B2C INDIA unique products">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<head>
+   <title>Somodesk E-commerce Site</title>  
+  <link rel="icon" href="/image/logos/somodesk-logo.png" type="image/png"> 
+  
+   <link rel="stylesheet" href="/css/elegant-icons.css" type="text/css">
+
+
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style>
+ul.demo {
+  list-style-type: none;
+}
+ul.a {list-style-type: square;}
+ul.c {list-style-type: upper-roman;}
+ul.d {list-style-type: lower-alpha;}
+ 
+.full-width {
+  width: 100%;
+  height: 350px;
+  position: relative;
+}
+
+
+ .nav1 {
+    margin-bottom:0;
+}
+/* ------- navigation bar --------------------------------- */
+.topnav {
+  overflow: hidden;
+ /* background-color: #333;*/
+  background-color: white;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #007bff;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+  
+}
+
+.topnav a.active {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav .logo {
+  float: left;
+  display:block;
+}
+
+.topnav .nav-right {
+  float: right;
+  display: block;
+  color: #007bff;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  /*.topnav a:not(:first-child) {display: none;}*/
+  .topnav a{display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+
+/* -------------- footer ----------------------- */
+.footer{background:#fff;padding-top:30px}
+.footer__about{margin-bottom:30px}
+.footer__about p{margin-bottom:20px}
+.footer__logo{margin-bottom:20px}
+.footer__payment a{margin-right:6px;margin-bottom:10px;display:inline-block}
+.footer__payment a:last-child{margin-right:0}
+.footer__widget{margin-bottom:30px}
+.footer__widget h6{color:#111;font-weight:600;text-transform:uppercase;margin-bottom:12px}
+/*.footer__widget ul li{list-style:none}
+.footer__widget ul li a{font-size:14px;color:#666;line-height:30px}
+.footer__newslatter{margin-bottom:30px}*/
+.footer__newslatter h6{color:#111;font-weight:600;text-transform:uppercase;margin-bottom:25px}
+.footer__newslatter form{position:relative;margin-bottom:30px}
+.footer__newslatter form input{height:52px;width:100%;border:1px solid #e1e1e1;border-radius:50px;padding-left:30px;font-size:14px;color:#666}
+.footer__newslatter form input::-webkit-input-placeholder{color:#666}
+.footer__newslatter form input::-moz-placeholder{color:#666}
+.footer__newslatter form input:-ms-input-placeholder{color:#666}
+.footer__newslatter form input::-ms-input-placeholder{color:#666}
+.footer__newslatter form input::placeholder{color:#666}
+.footer__newslatter form button{position:absolute;right:4px;top:4px}
+.footer__social a{display:inline-block;height:40px;width:40px;background:#e1e1e1;font-size:15px;color:#111;line-height:40px;text-align:center;border-radius:50%;margin-right:6px;margin-bottom:5px}
+.footer__social a:last-child{margin-right:0}
+.footer__copyright__text{border-top:1px solid #e1e1e1;padding:18px 0 25px;text-align:center;margin-top:35px}
+.footer__copyright__text p{margin-bottom:0}
+.footer__copyright__text a{color:#5c5c5c}
+.footer__copyright__text i{color:#ca1515}
+.footer__copyright__text a:hover{color:#ca1515}
+
+</style>
+</head>
+
+
+
+  <body id="service">
+   <!-- Single Navigation bar-->
+<div class="topnav" id="myTopnav">
+<div class="container-fluid">
+<div class="row">
+<div class="col-sm-2">
+	<span class="logo"><img src="/image/logos/somodesk-logo.png" alt="LOGO" style="width:50px;height:40px"><img src="/image/logos/somodesk-txt3.png" alt="NAME"></span>
+</div>
+ <div class="col-sm-7">
+  <a th:href="@{/}">Home</a>
+ <!-- <a th:href="@{/wip}">Cherise</a> --> 
+   <a th:href="@{/brands}">Brands</a>          
+  <a th:href="@{/store}">All Products</a>
+  <a th:href="@{/aboutus}">About Us</a>          
+ <!--   <li><a th:href="@{/wip}" class="nav-link">About Us</a></li>--> 
+  <!-- <li  class="nav-item"><span class="icon_search search-switch nav-link"></span></li>-->
+  <!--  <li><a th:href="@{/wip}" class="nav-link"><span class="icon_heart_alt"></span></a></li>-->
+  <a th:href="@{/shopping-cart/cart}" th:if="${shoppingCartItemNumber} > 0" data-toggle="tooltip" data-placement="bottom" title="Shopping Cart">
+	<span class="icon_bag_alt"></span><span class="tip" th:text="${shoppingCartItemNumber}"></span>
+  </a>
+  <a sec:authorize="hasRole('ADMIN')"  th:href="@{/article/article-list}" data-toggle="tooltip" data-placement="bottom" title="Admin Portal"><i class="fa fa-user-plus" aria-hidden="true"></i></a>
+</div>
+ <div class="col-sm-3">
+  <i><a sec:authorize="isAnonymous()" th:href="@{/ecom_login}">Login</a></i>
+  <i><a sec:authorize="isAuthenticated()" th:href="@{/logout}">Logout</a></i>
+  <a sec:authorize="isAuthenticated()" th:href="@{/my-profile}" data-toggle="tooltip" data-placement="bottom" title="My Account"><i class="fa fa-user"></i> Welcome, <span sec:authentication="name"></span></a>
+</div>  
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="fa fa-bars"></i> </a>
+</div>
+</div>
+</div>
+
+
+ <br>
+    
+    
+    <section class="blog_area single-post-area"> 
+      <div class="container">
+          <div>
+  		<img class="full-width" src="/image/home/privacypolicy.jpg" />
+	</div> 
+               <div  id="hideDetails">
+                <h2 style="margin-top:20px">SOMODESK PRIVACY POLICY</h2>
+                 <p><a class="fa fa-home" style="color: blue;" href="/"> Home</a> / Privacy Policy</p>
+                <p class="excert">
+                <p><span style="font-weight:bold; color:black">INTRODUCTION:</span></p>
+                
+                <p><span id="_14.9" style=" font-family:Arial; font-size:14.9px; color:#000000">
+                	Welcome to the Somodesk Privacy Policy (“Privacy Policy”). By visiting our Privacy Policy, you’ve taken the first step in educating yourself about ecommerce business such as ours that contribute to the Internet’s ability to remain largely an ecosystem of free content, as well as to provide a better user experience for customers.
+                </span></p>
+                <p><span id="_14.9" style=" font-family:Arial; font-size:14.9px; color:#000000">
+                	At Somodesk.com we provide ecommerce services. To do this, we follow information usage practices based on two beliefs: first, that protecting user privacy is essential to the growth and prosperity of our platform; second, that a personalized web experience can provide significant benefits to ourCustomers, Alliance partners and Affiliates. In accordance with these beliefs, Somodesk creates results for the vibrant ecosystem in revolutionary ways without compromising individual privacy.
+                </span></p>
+                <p><span id="_14.9" style=" font-family:Arial; font-size:14.9px; color:#000000">
+                	Albertsons International Private Limited (<span style="font-weight:bold; color:black">"we", "us", "somodesk.com" "Somodesk", “somodesk.in”, “Albertsons”)</span> is committed to protecting the privacy of the users (<span style="font-weight:bold; color:black">"you" / "your" / "yourself")</span> of its website / software applications offered by it (collectively, "Applications") and has provided this Privacy Policy ("Policy") to familiarize you with the manner in which  we useand disclose your information collected through the Applications.
+                </span></p>
+                <p><span id="_14.9" style=" font-family:Arial; font-size:14.9px; color:#000000">
+                	The terms of the Policy provided herein govern your use of any and all of the Applications and the information accessible on or from these Applications. The Policy also lays down how Somodesk may collect, use and share any information you provide. Somodesk reserves the right, at its discretion, to change, modify, add or remove portions of this Policy at any time. Somodesk recommends that you review this Policy periodically to ensure that you are aware of the current privacy practices.
+                </span></p>
+                
+                <p><span id="_14.9" style=" font-family:Arial; font-size:14.9px; color:#000000">This policy applies to the following classification of individuals that interact with Somodesk:</span></p>
+                
+                <ul class="a">
+                	<li>
+                		<span id="_14.9" style=" font-family:Arial; font-size:14.9px; color:#000000"><span style="font-weight:bold; color:black">Customers</span> include individuals who self-register to buy products or services on our Applications as direct customers or customers invited by our Affiliates.
+                	</span></li>
+                	<li>
+                		<span id="_14.9" style=" font-family:Arial; font-size:14.9px; color:#000000"><span style="font-weight:bold; color:black">Affiliates</span> are individuals acting as our marketing partners who invite customers as buyers onto the website through referral strategy. They interact with our Customers through our Applications and access their dashboard for their commission earnings and sales data. They are our marketing personnel that are assigned a login ID and are authorized to access.
+                	
+                	</span></li>
+                	<li>
+                		<span id="_14.9" style=" font-family:Arial; font-size:14.9px; color:#000000"><span style="font-weight:bold; color:black">Alliance Partners </span>are individuals from companies / suppliers who have offered their products and services for sales through their store front on our website. They interact and train Affiliates to focus on their sales through our Applications. 
+                	</span></li>   
+                	<li>
+                		<span id="_14.9" style=" font-family:Arial; font-size:14.9px; color:#000000"><span style="font-weight:bold; color:black">Visitors </span>Individuals and prospective customers who interact with our Websites inquisitive to read about brands available on Somodesk, download a white paper, or witness an online demo, as well as those who learn about somodesk from tradeshows or learn about us through a referral from third parties or other external sources.  
+                	</span></li>              	                	
+                </ul>
+                
+                
+                
+                <p>
+                	<span id="_14.9" style=" font-family:Arial; font-size:14.9px; color:#000000">This Policy shall be construed as provided in compliance with Information Technology Act, 2000 as amended and read with the Information Technology (Reasonable Security Practices and Procedures and Sensitive Personal Data or Information) Rules, 2011.
+                </span></p>
+                <p><span style="font-weight:bold; color:black">Collection of Information</span></p>
+                <ul class="c">
+                	<li>
+                		<span id="_14.9" style=" font-family:Arial; font-size:14.9px; color:#000000"><span style="font-weight:bold; color:blue">Somodesk may collect the following two types of information:</span>
+                		</span><ul class="d">
+                			<li>
+                				<span id="_14.9" style=" font-family:Arial; font-size:14.9px; color:#000000"><span style="font-weight:bold; color:black">"Personal Information"</span> which shall mean information which could reasonably be used to identify you personally, such as your name, email address, registration account details, physical address or other relevant personal details; and demographic information, such as gender, pin code or similar information. For the purpose of this policy, sensitive personal data or information has been considered as a part of Personal Information, which may include information such as password, financial information (details of bank account, credit card, debit card, or other payment instrument details).
+                			</span></li>
+                			<li>
+                				<span id="_14.9" style=" font-family:Arial; font-size:14.9px; color:#000000"><span style="font-weight:bold; color:black">Non-Personal Information"</span> which shall mean information that does not identify you or any other individual, and includes session, web beacons and usage data, log data and aggregate information. We use this information to inter-alia deliver our web pages to you upon request, to tailor our Application/website to the interests of our users, to measure traffic within our Application/website, to improve the Application/website quality, functionality and interactivity and let advertisers know the geographic locations from where our visitors come.
+                			</span></li>
+                			<li>
+                				<span id="_14.9" style=" font-family:Arial; font-size:14.9px; color:#000000"><span style="font-weight:bold; color:black">Somodesk</span> may install cookies or other similar data collection software in your computer system/device for such purpose and you hereby consent to the same. We may use "cookies", beacons or similar electronic tools to collect information to assign each visitor a unique, random number as a User Identification (User ID) to understand the user's individual interests using the identified computer. Unless you voluntarily identify yourself (through registration, for example), we will have no way of knowing who you are, even if we assign a cookie to your computer. The only personal information a cookie can contain is information you supply. A cookie cannot read data off your hard drive. Our advertisers may also assign their own cookies to your browser (if you click on their ads), a process that we do not control.
+                			</span></li>
+                		</ul>
+                	</li>
+                	
+                	<li>
+                		<span id="_14.9" style=" font-family:Arial; font-size:14.9px; color:#000000">You represent that the information or data you provide from time to time is and shall be correct, current and updated and you have all the rights, permissions and consents to provide such information or data. Your providing the information or data and Somodesk’s consequent storage, collection, usage, transfer, access or processing of the same shall not be in violation of any third party agreement, laws, judgments, orders or decrees.
+                	</span></li>
+                </ul>
+                 <p><span style="font-weight:bold; color:black">Use of Information</span></p>
+                 <ul class="c">
+                	<li><span id="_14.9" style=" font-family:Arial; font-size:14.9px; color:#000000">
+                		You may need to provide Somodesk with your Personal Information while registering yourself on any of the Applications. The information so provided by you to Somodesk or otherwise captured by Somodesk may be used for a number of purposes connected with Somodesk’s business operations which may include the following:
+                		</span><ul class="d">
+                			<li>
+								<span id="_14.9" style=" font-family:Arial; font-size:14.9px; color:#000000">Processing orders or applications;                			
+                			</span></li>
+                			<li>
+								<span id="_14.9" style=" font-family:Arial; font-size:14.9px; color:#000000">Provisioning of services, testing or improvement of services, recommending various products or services including those of third parties;                			
+                			</span></li>
+                			<li>
+								<span id="_14.9" style=" font-family:Arial; font-size:14.9px; color:#000000">Dealing with requests, enquiries and complaints, customer services and related activities.                			
+                			</span></li>
+                			<li>
+								<span id="_14.9" style=" font-family:Arial; font-size:14.9px; color:#000000">Marketing products and services of Somodesk and its analysis;               			
+                			</span></li>
+                			<li>
+								<span id="_14.9" style=" font-family:Arial; font-size:14.9px; color:#000000">Responding to your queries and fulfilling your requests for information regarding the Applications;               			
+                			</span></li>
+                			<li>
+								<span id="_14.9" style=" font-family:Arial; font-size:14.9px; color:#000000">Notifying you of any new offers or services of Somodesk and sending you important information regarding the Applications, changes to any of Somodesk’s policies and/or other administrative information;                			
+                			</span></li>
+                			<li><span id="_14.9" style=" font-family:Arial; font-size:14.9px; color:#000000">
+Keeping you informed about the latest content available on the Applications and special offers with respect to the same;                			
+                			</span></li>
+                			<li><span id="_14.9" style=" font-family:Arial; font-size:14.9px; color:#000000">
+Sending you surveys and marketing communications that Somodesk believes may be of interest to you;                			
+                			</span></li>
+                			<li><span id="_14.9" style=" font-family:Arial; font-size:14.9px; color:#000000">
+Conducting internal reviews and data analysis for the Applications;                			
+                			</span></li>
+                			<li><span id="_14.9" style=" font-family:Arial; font-size:14.9px; color:#000000">
+Personalizing your experience while using the Applications by presenting advertising, products and offers tailored to you;                			
+                			</span></li>
+                			<li><span id="_14.9" style=" font-family:Arial; font-size:14.9px; color:#000000">
+If you wish to subscribe to any content package or service offered by Somodesk through the Applications,for completing your purchase. (For example, to have your payments processed, communicate with you regarding your purchase and provide you with related customer service);                			
+                			</span></li>
+                			<li><span id="_14.9" style=" font-family:Arial; font-size:14.9px; color:#000000">
+Improving the services, content and advertising on the Applications;                			
+                			</span></li>
+                			<li><span id="_14.9" style=" font-family:Arial; font-size:14.9px; color:#000000">
+Protecting the integrity of the Applications; and                			
+                			</span></li>
+                			<li><span id="_14.9" style=" font-family:Arial; font-size:14.9px; color:#000000">
+                				Responding to judicial process and provide information to law enforcement agencies or in connection with an investigation on matters related to public safety, as permitted by law.
+                			</span></li>
+                		</ul>
+                	</li>
+                	
+                	<li><span id="_14.9" style=" font-family:Arial; font-size:14.9px; color:#000000">
+Your Personal Information will be kept confidential to the maximum possible extent and will be used to support your relationship with Somodesk, to notify you of any updated information and new activities and other related functions offered by Somodesk. Any personally identifiable information provided by you will not be considered as sensitive if it is freely available and / or accessible in the public domain. Further, any comments, messages, blogs, scribbles etc. posted/uploaded/conveyed/communicated by users on the public sections of the Application becomes published content and is not considered personally identifiable information subject to this Policy.                	
+                	</span></li>
+                	
+                	<li><span id="_14.9" style=" font-family:Arial; font-size:14.9px; color:#000000">
+                		Somodesk may use Personal Information to verify whether you are entitled to access and use the Applications and the products and services made available through the Applications. This Personal Information may also be used to enable Somodesk to enhance your experience of the Applications.
+                	</span></li>
+                	<li>
+                		<span id="_14.9" style=" font-family:Arial; font-size:14.9px; color:#000000">Further, with respect to Non-Personal Information automatically collected and stored in files, Somodesk uses this information to understand and analyse trends, to administer the Applications, to learn about user behaviour on the Applications, and to gather demographic information about the user base as a whole. Somodesk may use this information in its marketing and advertising services. Somodesk may also use such information to measure traffic patterns on the Applications. As Non-Personal Information does not personally identify you, Somodesk may use and disclose Non-Personal Information for any purpose.
+                	</span></li>
+                	
+                </ul>               
+                
+                 <p><span style="font-weight:bold; color:black">Disclosure</span></p>
+                
+   <div class="pos" id="_106:3715" style="top:3715;left:106">
+<span id="_12.5" style=" font-family:Times New Roman; font-size:12.5px; color:#000000">
+&#160;<span id="_14.9" style="font-weight:bold; font-family:Arial; font-size:14.9px"> I.</span><span id="_14.9" style=" font-family:Arial; font-size:14.9px"> Somodesk does not sell or rent Personal Information. Personal Information may be disclosed under the following circumstances: </span></span>
+</div>
+
+<ul class="d">
+	<li>
+	<span id="_14.9" style=" font-family:Arial; font-size:14.9px; color:#000000">
+		Somodesk may disclose your Personal Information to its Affiliates, group companies, consultants, vendors and contractors who provide various services including, contact information verification, payment processing, customer service, website hosting, data analysis, infrastructure provision, IT services, and other similar services, under confidentiality restrictions, in order to enable such vendor and service providers to provide the services subscribed to by you;
+	</span>
+	</li>
+	<li>
+	<span id="_14.9" style=" font-family:Arial; font-size:14.9px; color:#000000">
+		Somodesk may provide your information or data to its partners, associates, advertisers, service providers or other third parties to provide, advertise or market their legitimate products and/or services which may be of your interest. You will have the choice to 'opt out' of such marketing or promotional communications at your 	</span>
+	</li>
+	<li>
+	<span id="_14.9" style="font-weight:bold; font-family:Arial; font-size:14.9px; color:black">
+		As necessary or appropriate:	</span>
+		<ul class="a">
+			<li>
+				<span id="_14.9" style=" font-family:Arial; font-size:14.9px; color:#000000">
+				in any manner permitted under applicable law, including laws outside your country of residence;
+				</span>
+			</li>
+			<li>
+				<span id="_14.9" style=" font-family:Arial; font-size:14.9px; color:#000000">
+ 					to comply with legal process whether local or foreign;				
+				</span>
+			</li>			
+			
+			<li>
+				<span id="_14.9" style=" font-family:Arial; font-size:14.9px; color:#000000">
+ 					to respond to requests from public and government authorities, including public and government authorities outside your country of residence;				
+				</span>
+			</li>
+			<li>
+				<span id="_14.9" style=" font-family:Arial; font-size:14.9px; color:#000000">
+ 					to enforce Somodesk’s terms and conditions;				
+				</span>
+			</li>
+			
+			<li>
+				<span id="_14.9" style=" font-family:Arial; font-size:14.9px; color:#000000">
+					to protect Somodesk’s rights, privacy, safety or property, and/or that of Somodesk’s Customers, Alliance partners, Affiliates, Associate partners, you or others; and				
+				</span>
+			</li>
+			
+			<li>
+				<span id="_14.9" style=" font-family:Arial; font-size:14.9px; color:#000000">
+					to allow Somodesk to pursue available remedies or limit the damages that Somodesk may sustain.				
+				</span>
+			</li>		
+		</ul>
+	</li>
+	
+	<li>
+		<span id="_14.9" style="font-weight:bold; font-family:Arial; font-size:14.9px; color:black">
+We may disclose to third party services certain personally identifiable information listed below:		
+		</span>
+		
+		<ul class="a">
+			<li>
+				<span id="_14.9" style=" font-family:Arial; font-size:14.9px; color:#000000">
+				Information you provide us such as name, email, mobile phone number.
+				</span>
+			</li>
+			<li>
+				<span id="_14.9" style=" font-family:Arial; font-size:14.9px; color:#000000">
+ 					Information we collect as you access and use our service, including device information, geolocation and network carrier.				
+				</span>
+			</li>	
+			</ul>
+	</li>
+	
+	<li>
+		<span id="_14.9" style="font-weight:bold; font-family:Arial; font-size:14.9px; color:black">
+			This information is shared with third party service providers so that we can:
+		</span>
+		
+		<ul class="a">
+			<li>
+				<span id="_14.9" style=" font-family:Arial; font-size:14.9px; color:#000000">
+					Personalize the app for you.
+				</span>
+			</li>
+			<li>
+				<span id="_14.9" style=" font-family:Arial; font-size:14.9px; color:#000000">
+ 						Perform behavioural analytics.				
+				</span>
+			</li>	
+			</ul>
+	</li>
+</ul>
+             
+  	<span style="font-weight:bold;font-family:Arial;font-size:14.9px; color:blue">We also may share any of the personal information we collect as follows:</span>
+     <p>
+     <span id="_14.9" style=" font-family:Arial; font-size:14.9px; color:#000000">
+     
+     	<span style="font-weight:bold; color:black">Sharing for Legal Purposes:</span>  In addition, we may share personal information with third parties in order to: (a) comply with legal process or a regulatory investigation (e.g. a subpoena or court order); (b) enforce our Terms of Service, this Privacy Policy, or other contracts with you, including investigation of potential violations thereof; (c) respond to claims that any content violates the rights of third parties; and/or (d) protect the rights, property or personal safety of us, our platform, our customers, our agents and affiliates, its users and/or the public.  We likewise may provide information to other companies and organizations (including law enforcement) for fraud protection, and spam/malware prevention, and similar purposes.  
+    	</span>	
+     </p> 
+     
+      <p>
+     <span id="_14.9" style=" font-family:Arial; font-size:14.9px; color:#000000">
+     
+     	<span style="font-weight:bold; color:black">Sharing in  the event of a Corporate Transaction:</span>  
+     		We may also share personal information in the event of a major corporate transaction, including for example a merger, investment, acquisition, reorganization, consolidation, bankruptcy, liquidation, or sale of some or all of our assets, or for purposes of due diligence connected with any such transaction. 
+    	</span>	
+     </p>
+     
+     <p>
+     <span id="_14.9" style=" font-family:Arial; font-size:14.9px; color:#000000">
+     
+     	<span style="font-weight:bold; color:black">Sharing with Service Providers:  </span>  
+     		We may aggregate and/or de-identify any information collected so that such information can no longer be linked to you or your device (“Aggregate/De-Identified Information”).   We may use Aggregate/De-Identified Information for any purpose, including without limitation for research and marketing purposes, and may also share such data with any third parties, including advertisers, promotional partners, and sponsors, in our discretion. 
+    	</span>	
+     </p>  
+   <div class="pos" id="_106:3715" style="top:3715;left:106">
+<span id="_12.5" style=" font-family:Times New Roman; font-size:12.5px; color:#000000">
+&#160;<span id="_14.9" style="font-weight:bold; font-family:Arial; font-size:14.9px"> II.</span><span id="_14.9" style=" font-family:Arial; font-size:14.9px"> 
+Your consent being part of the terms and conditions through which Somodesk provides you with a service. Your consent to collecting Personal and Non-Personal Information may be implicit or implied or through course of conduct.
+ </span></span>
+</div>
+ 
+ <div class="pos" id="_106:3715" style="top:3715;left:106">
+<span id="_12.5" style=" font-family:Times New Roman; font-size:12.5px; color:#000000">
+&#160;<span id="_14.9" style="font-weight:bold; font-family:Arial; font-size:14.9px"> 
+III.</span><span id="_14.9" style=" font-family:Arial; font-size:14.9px"> 
+Application may present display advertising and may collect data about traffic via Google Analytics or any equivalent analytical tool, Demographics and Interest Reporting. </span></span>
+</div>  
+
+   
+    
+    <p><span style="font-weight:bold; color:black">Information Security and Storage</span></p>
+       
+       <ul class="c">
+       	<li>
+       	     <span id="_14.9" style=" font-family:Arial; font-size:14.9px; color:#000000">
+       		 Somodesk uses reasonable security measures, at the minimum those mandated under the Information Technology Act, 2000 as amended and read with Information Technology (Reasonable Security Practices and Procedures and Sensitive Personal Data or Information) Rules, 2011, to safeguard and protect your data and information. Somodesk implements such measures, as stated above, to protect against unauthorized access to, and unlawful interception of, Personal Information. You accept the inherent security implications of providing information over Internet/ cellular/data networks and will not hold Somodesk responsible for any breach of security or the disclosure of Personal Information unless Somodesk has been grossly and wilfully negligent.
+       	
+       		</span>
+       	</li>
+       	<li>
+       	     <span id="_14.9" style=" font-family:Arial; font-size:14.9px; color:#000000">
+Your information or data will primarily be stored in electronic form. However, certain data can also be stored in physical form. Somodesk may store, collect, process and use your data in countries other than the Republic of India but under full compliance with applicable laws. Somodesk may enter into agreement with third parties (in or outside of India) to store your information or data. These third parties may have their own security standards to safeguard your information or data and Somodesk will on commercial reasonable basis require such third parties to adopt reasonable security standards to safeguard your information / data.       	
+       		</span>
+       	</li>
+       	<li>
+       	     <span id="_14.9" style=" font-family:Arial; font-size:14.9px; color:#000000">
+Notwithstanding anything contained in this Policy or elsewhere, Somodesk shall not be held responsible for any loss, damage or misuse of your Personal Information, if such loss, damage or misuse is attributable to a Force Majeure Event. A "Force Majeure Event" shall mean any event that is beyond the reasonable control of Somodesk and shall include, without limitation, sabotage, fire, flood, explosion, pandemic, acts of God, civil commotion, lockdown, strikes or industrial action of any kind, riots, insurrection, war, acts of government, computer hacking, unauthorized access to computer data and storage device, computer crashes, breach of security and encryption, etc.       	
+       		</span>
+       	</li>       	       	
+       
+       </ul> 
+       
+        <p><span style="font-weight:bold; color:black">Third Party Websites, Applications and Services</span></p>
+        <p>
+        	<span id="_14.9" style=" font-family:Arial; font-size:14.9px; color:#000000">
+        	The Application/website may include links to other websites/applications. Such websites/application are governed by their respective privacy policies, which are beyond our control. Once you leave our servers (you can tell where you are by checking the URL in the location bar on your browser), use of any information you provide is governed by the privacy policy of the operator of the website/application you are visiting. That policy may differ from ours. If you can't find the privacy policy of any of these websites/application via a link from the website's homepage, you should contact the website/application directly for more information.
+        	</span>
+        </p>
+        <p><span style="font-weight:bold; color:black">Access, Correction and Deletion</span></p>
+        <p>
+        	<span id="_14.9" style=" font-family:Arial; font-size:14.9px; color:#000000">
+        	Somodesk provides you with all information that Somodesk maintains about you such as the transaction and contact information upon proper verification. This may be provided to you on request, in case you experience any doubts. You may request access and/or correct the information Somodesk has collected from you by contacting Somodesk at <span style="font-weight:bold; color:blue">info@somodesk.com</span> . If you wish to have the information or data that you have provided to Somodesk deleted, you can always do so by sending a request to us on the same e-mail id. You may note that correction or deletion of certain information or data may lead to cancellation of your registration with the Application(s) or your access to certain features of the Application(s). You also agree and acknowledge that certain data or information cannot be corrected or deleted or prohibited to be deleted as required under any applicable law, law enforcement requests or under any judicial proceedings.
+        	</span>
+        </p>
+        <p>
+        	<span id="_14.9" style=" font-family:Arial; font-size:14.9px; color:#000000">
+        	If you have questions or concerns about this Policy, please contact Somodesk at <span style="font-weight:bold; color:blue">info@somodesk.com</span> 
+        	</span>
+        </p>
+        
+        <p>
+        	<span id="_14.9" style=" font-family:Arial; font-size:14.9px; color:#000000">
+				Have a question on something not addressed or have a complaint? Please contact our Grievance Officer <span style="font-weight:bold; color:blue">Mr. Yogesh Jain at yogesh.jain@albertsons.in.</span>        	</span>
+        </p>        
+       
+        <p><span style="font-weight:bold;font-family:Arial; color:black">YOUR REPRESENTATIONS</span></p>
+          <p>
+            <span id="_14.9" style=" font-family:Arial; font-size:14.9px; color:#000000">
+          	YOU UNDERSTAND AND AGREE THAT ANY DISPUTE OVER PRIVACY IS SUBJECT TO THE TERMS AND CONDITIONS OF THIS PRIVACY POLICY AND APPLICABLE SITE TERMS AND CONDITIONS.You also agree that you have provided notice to, and obtained consent from, any third party individuals whose information you supply to us with regard to: (a) the purposes for which such third party's information has been collected; (b) the intended recipients or categories of recipients of the third party's information; (c) which of the third party's data are obligatory and which data, if any, are voluntary; and (d) how the third party can access and, if necessary, rectify the data held about them. It is the express wish of the parties that the Privacy Policy and all related documents have been drawn up in the English language and that the English version of this Privacy Policy shall be the sole version used in interpreting and enforcing this Privacy Policy.
+          	</span>
+          </p>     
+            <p>
+            <span id="_14.9" style=" font-family:Arial; font-size:14.9px; color:#000000">
+            YOU AGREE THAT OUR LIABILITY FOR ANY BREACH OF THIS PRIVACY POLICY SHALL BE LIMITED TO THE VALUE OF THE TRANSACTIONS OR SERVICES PROVIDED TO YOU BY US TO THE EXTENT SUCH CLAIM IS NOT OTHERWISE BARRED BY OUR TERMS AND CONDITIONS.
+            </span></p>    
+                
+        <p><span style="font-weight:bold;font-family:Arial; color:black">MODIFICATIONS TO THIS PRIVACY POLICY</span></p>
+         <p>
+                     <span id="_14.9" style=" font-family:Arial; font-size:14.9px; color:#000000">
+         
+         We may occasionally make changes to this Privacy Policy. If we do, we will update the “Last Modified” date above. If we make a material change, such as the ways, we will notify you via a prominent notice on our Website. 
+        
+        </span> </p>       
+                											
+				
+				
+              <div class="br" style="padding-bottom:50px;"></div>
+              </div>		                
+      </div>
+    </section>
+    <!--================Blog Area =================-->
+
+    <!--================ start footer Area  =================-->
+   <br> <br>
+ <div th:replace="common/header :: footer"> </div> 
+    <!--================ End footer Area  =================-->
+
+  </body>
+
+</html>

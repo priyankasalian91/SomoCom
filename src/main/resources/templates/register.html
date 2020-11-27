@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org./1999/xhtml">
+<head th:replace="common/headerlogin :: common-header"/>
+<head>
+<style>
+body {
+ background-image: url('/image/background/5.jpg');
+  /*background-size:cover;*/
+ background-size:100%;
+ -ms-background-size: 100%;
+ -o-background-size: 100%;
+ -moz-background-size: 100%;   
+ -webkit-background-size: 100%;
+}
+  
+</style>
+
+<body class="d-flex flex-column">
+  <div th:replace="common/headerlogin :: navbar"> </div>
+<!-- nav aria-label="breadcrumb">
+	  <ol class="breadcrumb">
+	    <li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
+	    <li class="breadcrumb-item active" aria-current="page"><a th:href="@{/ecom_register}">Register</a></li>
+	  </ol>
+</nav -->
+
+<div class="container  my-4 my-sm-5 page-content">
+  <div class="row">
+          <aside class="col-sm-4">
+		  </aside>
+          
+          <aside class="col-sm-4">
+          <div class="card">
+           <article class="card-body">
+                <form th:action="@{/new-user}" method="post">
+                	<div class="alert alert-danger" id="pay-success" style="display:none;">
+						<strong>Invalid / Fake Email Id!! </strong> 
+					</div>
+					<div class="alert alert-danger" id="email-exist" style="display:none;">
+					  <strong>This email already exists!! </strong> 
+					</div>
+					<div class="alert alert-danger" id="username-exist" style="display:none;">
+					  <strong>This username already exists!! </strong> 
+					</div>											
+					<div class="alert alert-danger" id="pin-failed" style="display:none;">
+						<strong>This PinCode/ZipCode validation Failed!! </strong> 
+					</div> 	
+ 
+                  <div class="form-group text-center">
+                    <h2 class="bold">Register</h2>
+                  </div>
+                  
+                  <div class="form-group">
+                    <div class="input-icon"> 
+                      <i data-feather="user"></i> 
+                      <input type="text" required="required"  class="form-control"  id="firstName" name="firstName"  placeholder="FirstName" >
+                    </div>
+                  </div>
+                  
+                  <div class="form-group">
+                    <div class="input-icon"> 
+                      <i data-feather="user"></i> 
+                      <input type="text" required="required"  class="form-control" id="lastName" name="lastName"  placeholder="LastName">
+                    </div>
+                  </div>
+                   <div class="form-group">                
+                    <div class="input-icon" id ="chk"> 
+                      <i data-feather="mail"></i> 
+                      <input required="required" type="email" class="form-control" th:classappend="${emailExists} ? is-invalid" 
+                            id="email" name="email" placeholder="Email address" th:value="${email}" onchange="blurHandler(event)">
+                      <div class="invalid-feedback">Email is already in use</div>                 
+                    </div>
+                    <span id="email_check"></span>                        
+                    
+                  </div>
+                  
+                  
+                  <div class="form-group">
+                    <div class="input-icon"> 
+                      <i data-feather="user"></i> 
+                      <input required="required" type="text" class="form-control" th:classappend="${usernameExists} ? is-invalid"
+                             placeholder="Username" name="username" th:value="${username}">
+                      <div class="invalid-feedback">Username is already in use</div>                 
+                      
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="input-icon"> 
+                      <i data-feather="lock"></i> <input type="password" required="required" id="password"
+                        class="form-control" name="new-password"  th:classappend="${passwordMessage} ? is-invalid"
+                    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,20}$"  title="Must contain at least one number and one uppercase and lowercase letter,one special character and at least 8 or more characters"
+                        placeholder="Password" autocomplete="new-password">
+                        <div class="invalid-feedback">Must contain at least one number and one uppercase and lowercase letter,one special character and at least 8 or more characters</div>    
+                    </div>
+                  </div>
+                  
+                  <div class="form-group">
+                    <div class="input-icon"> 
+                      <i data-feather="phone"></i> 
+                      <input type="text" pattern="^[1-9][0-9]{5}$" th:minlength="6" th:maxlength="6" required="required"  class="form-control" name="phone"  id="phone"  placeholder="Phone">
+                    </div>
+                  </div>
+                  
+                    
+                  <div class="form-group">                
+                    <div class="input-icon"> 
+                      <i data-feather="map-pin"></i><input required="required" type="number" class="form-control" name="pincode" placeholder="Pincode" >
+                   </div>
+                  </div>
+                  
+                  <button type="submit"  class="btn btn-primary btn-block">REGISTER</button>
+                </form>
+                
+            
+              <!-- /Register Form -->
+           </article>
+          </div>
+        </aside>
+     </div>
+   </div>
+  
+  <div th:replace="common/header :: footer"> </div>
+  <div th:replace="common/header :: body-scripts"> </div>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  	 		
+ <script type="text/javascript">
+
+function blurHandler(event)  {
+    var email_check = document.getElementById("email_check");
+    document.getElementById("email").focus();
+    email_check.innerHTML = "Validating Email.....";
+    email_check.style.color = "darkorange";
+	var email = document.getElementById("email").value;
+    var search = {"val" : email };
+   // var $t = $(event.currentTarget);
+	//$t.addClass('loading');
+    $.ajax({
+    type : "POST",
+    url : "/checkingEmail",
+	dataType : "json",
+    data: search, 
+	success : function(resp) {
+		//alert(resp.response);
+         if (resp.response =="false") { // not email
+        	 document.getElementById('email').style.color = 'red';
+        	 document.getElementById('chk').style.background = 'red';
+        	 $('#pay-success').show();
+ 		     email_check.innerHTML = "Please check your Email ID !!";
+		     email_check.style.color = "red";
+        	 document.getElementById('email').value = '';
+        	// $t.removeClass('loading');
+        	 $('#pin-failed').hide();
+        	 $('#username-exist').hide();
+
+           } else {
+        	   $('#pay-success').hide();
+	           if(resp.emailCount == 1){
+			       document.getElementById('email').style.color = 'red';  
+			       // $('#email').css('border', 'solid 2px red'); 
+		           document.getElementById('chk').style.background = 'red';
+	        	   $('#email-exist').show();
+                   document.getElementById('email').value = '';
+       		       email_check.innerHTML = "Already Exists.";
+    		       email_check.style.color = "red";
+	           }else {
+			       document.getElementById('email').style.color = 'green';  
+		           document.getElementById('chk').style.background = 'green';
+		          // $t.removeClass('loading');
+       		       //email_check.innerHTML = "Genuine Email.";
+    		       email_check.style.color = "darkgreen";
+		            $('#email-exist').hide();
+	           }
+	        	 $('#pin-failed').hide();
+	        	 $('#username-exist').hide();
+	           
+        	  }
+			
+	    }
+    });
+}
+
+
+</script>
+  
+  
+</body>
+</html>

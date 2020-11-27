@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org./1999/xhtml">
+<head th:replace="common/header :: common-header" />
+
+
+<body>
+     <div th:replace="adminHome :: navbarAdmin"> </div>
+
+    <div class="container page-content">
+    <table id="table-article" class="table table-striped table-bordered table-hover">
+    <thead class="thead-dark">
+    			    <tr>
+                      <th>Order ID</th>
+                      <th>Date</th>
+                      <th>Total</th>
+                      <th>Status</th>
+                      <th>Payment</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr th:each="order : ${orders}">
+                      <th scope="row" ><a th:href="@{/admin-order-detail?order=}+${order.id}" class="text-primary">ORD<span th:text="${order.id}"></span></a></th>                      
+                      <td th:text="${#dates.format(order.orderDate, 'dd-MMM-yyyy')}"></td>
+                      <td class="text-right"><i class="fa fa-rupee"></i><span th:text="${order.orderTotal}"></span></td>
+                      <td class="text-center"><span class="badge badge-info rounded" th:text="${order.orderStatus}"></span></td>
+                      <td><a th:href="@{/payment/update?id=}+${order.id}" class="badge badge-primary">UPDATE</a></td>
+                    </tr>                    
+                  </tbody>
+                </table>
+              </div>     
+  
+
+  <div th:replace="common/header :: body-scripts"> </div>
+  <script>
+  	$(document).ready(function() {
+	    $('#table-article').DataTable({
+	    	stateSave: true
+	    });
+	} );
+  </script> 
+</html>

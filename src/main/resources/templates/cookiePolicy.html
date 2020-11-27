@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org./1999/xhtml" xmlns:sec="http://www.w3.org./1999/xhtml">
+<meta charset = "utf-8" /> 
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<meta name="description" content="Somodesk is a B2B and B2C e-commerce platform with a difference. Sell more with a trusted Affiliate network">
+<meta name="keywords" content="Affiliate franchisee e-commerce Somodesk B2B B2C INDIA unique products">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<head>
+  <title>Somodesk E-commerce Site</title> 
+   <link rel="icon" href="/image/logos/somodesk-logo.png" type="image/png"> 
+   <link rel="stylesheet" href="/css/elegant-icons.css" type="text/css">
+
+
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style>
+ul.demo {
+  list-style-type: none;
+}
+ul.a {list-style-type: square;}
+ul.c {list-style-type: upper-roman;}
+ul.d {list-style-type: lower-alpha;}
+    
+    
+.full-width {
+  width: 100%;
+  height: 350px;
+  position: relative;
+}
+
+
+
+ .nav1 {
+    margin-bottom:0;
+}
+/* ------- navigation bar --------------------------------- */
+.topnav {
+  overflow: hidden;
+ /* background-color: #333;*/
+  background-color: white;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #007bff;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+  
+}
+
+.topnav a.active {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav .logo {
+  float: left;
+  display:block;
+}
+
+.topnav .nav-right {
+  float: right;
+  display: block;
+  color: #007bff;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  /*.topnav a:not(:first-child) {display: none;}*/
+  .topnav a{display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+
+</style>
+</head>
+    
+  
+  <body id="service">
+    <!-- Single Navigation bar-->
+<div class="topnav" id="myTopnav">
+<div class="container-fluid">
+<div class="row">
+<div class="col-sm-2">
+		<span class="logo"><img src="/image/logos/somodesk-logo.png" alt="LOGO" style="width:50px;height:40px"><img src="/image/logos/somodesk-txt3.png" alt="NAME"></span>
+</div>
+ <div class="col-sm-7">
+  <a th:href="@{/}">Home</a>
+ <!-- <a th:href="@{/wip}">Cherise</a> --> 
+   <a th:href="@{/brands}">Brands</a>          
+  <a th:href="@{/store}">All Products</a>
+  <a th:href="@{/aboutus}">About Us</a>          
+ <!--   <li><a th:href="@{/wip}" class="nav-link">About Us</a></li>--> 
+  <!-- <li  class="nav-item"><span class="icon_search search-switch nav-link"></span></li>-->
+  <!--  <li><a th:href="@{/wip}" class="nav-link"><span class="icon_heart_alt"></span></a></li>-->
+  <a th:href="@{/shopping-cart/cart}" th:if="${shoppingCartItemNumber} > 0" data-toggle="tooltip" data-placement="bottom" title="Shopping Cart">
+	<span class="icon_bag_alt"></span><span class="tip" th:text="${shoppingCartItemNumber}"></span>
+  </a>
+  <a sec:authorize="hasRole('ADMIN')"  th:href="@{/article/article-list}" data-toggle="tooltip" data-placement="bottom" title="Admin Portal"><i class="fa fa-user-plus" aria-hidden="true"></i></a>
+</div>
+ <div class="col-sm-3">
+  <i><a sec:authorize="isAnonymous()" th:href="@{/ecom_login}">Login</a></i>
+  <i><a sec:authorize="isAuthenticated()" th:href="@{/logout}">Logout</a></i>
+  <a sec:authorize="isAuthenticated()" th:href="@{/my-profile}" data-toggle="tooltip" data-placement="bottom" title="My Account"><i class="fa fa-user"></i> Welcome, <span sec:authentication="name"></span></a>
+</div>  
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="fa fa-bars"></i> </a>
+</div>
+</div>
+</div>
+
+
+ <br>
+ 
+ 
+    <section class="blog_area single-post-area"> 
+       <div class="container">
+          <div>
+  		<img class="full-width" src="/image/home/cookiepolicy.jpg"  />
+	</div>
+               <div  id="hideDetails">
+                <h2 style="margin-top: 20px;">SOMODESK COOKIE POLICY</h2>
+                 <p><a class="fa fa-home" style="color: blue;" href="/"> Home</a> / Cookie Policy</p>
+                <p class="excert">
+                <p>Albertsons International Pvt. Ltd. <span style="font-weight:bold; color:black">("we", "us", "Somodesk")</span> understands that privacy is important to the data subject (<span style="font-weight:bold; color:black">"you", "visitor", "customer", "Alliance partner", “Affiliate” “Franchisee” “Associate”)</span> and we are committed to being transparent about the technologies we use. This Cookie Policy explains how and why cookies and other similar technologies may be stored on and accessed from your device when you use or visit the Our Websites or Applications that post a link to this Policy (collectively, "the Sites").It guides you through the process of use of cookies of the website visitors and networking platform users of somodesk.It refers to the information collected from somodesk.com and any webpage/social accounts linked to it and how securely it is stored.The cookie policy of somodesk will be updated regularly when incorporating any new security regulations.This Cookie Policy should be read together with our Privacy Policy.</p>
+				<p><span style="font-weight:bold;">1.   What are cookies and other tracking technologies?.</span></p>
+				<p>A cookie is a small text file that a website saves on your computer or mobile device when you visit the site. It enables the website to remember your actions and preferences (such as login, language, and font size and other display preferences) over a period of time, so you don't have to keep re-entering them whenever you re-visit the site or browse different pages.The other tracking technologies (e.g. web beacons, pixels, sdk files, scripts) work in a manner similar to the working of cookies and place small data files on your devices to monitor your website activity and enable us to collect information about how you use Our Websites. This allows Our Websites to uniquely identify your device from those of other users of the websites. The information about cookies provided below also applies to the other tracking technologies.</p>
+                 
+				<p><span style="font-weight:bold;">2.   How do we use cookies and other tracking technologies?.</span></p>
+              	<p>We use cookies to collect and store information about the user activities on the site when you visit our website and use somodesk's services.Most browsers allow the users to control cookies.We use in the form of tokens to authorize users with the iFrame compatibility on our website and community platform. These cookies are collected as they are necessary for the platforms to function. </p>
+
+              	<p>We use cookies for various purposes such as:</p>
+              		<ul class="a">
+					<li>To use this as an opportunity to improvise on the website experience and services;</li>				
+					<li>To provide purchase services, commission earnings, sales figures and MISreports;</li>
+					<li>To provide non-personalized or personalized advertisements;</li>
+					<li>To identify your location;</li>
+					<li>To identify your browser and device;</li>
+					<li>For analytics and research;</li>
+					<li>To measure and analyze the audience for each page in order to subsequently improve the ergonomics, browsing, or visibility of content;</li>
+					<li>To measure the reliability of Our Websites by analyzing the number of visits to its pages in real time, and offer varied ads that are adapted to users' areas of interest;
+						Cookies may also be saved by social media tools if you use these functionalities (e.g. Facebook, Google, LinkedIn& Twitter).
+					</li>
+					</ul>	
+								
+				<p><span style="font-weight:bold;">3. Type of Cookies.</span></p>
+				<p>Our website somodesk.com and networking community collects cookies in the form of user tokens.</p>
+				
+				<ol class="d">
+				<li><span style="font-weight:bold;">First-party cookies.</span>
+					<p>These are the cookies that belong to us and that we place on your device or are those set by a website that is being visited by you at the time. We use these cookies as they are absolutely necessary to provide you Somodesk's services. If you choose to opt out of these cookies, then we may not be able to provide you services. The table below would help you to understand what these necessary cookies do.</p>		
+
+				<li><span style="font-weight:bold;">Third-party cookies.</span>
+					<p>These cookies are those that another party places on your device through our site (For e.g. advertising agencies may place their cookies on our website which will collect tracking information and serve you with advertisements).</p>
+				</ol>
+				
+				<p><span style="font-weight:bold;">4. We categorize cookies as follows:</span></p>
+					
+				<ol class="c">
+				<li><span style="font-weight:bold;">Strictly Necessary/Technical.</span>				
+				<p>These Cookies are necessary to allow us to operate our Sites so you may access them as you have requested. These Cookies, for example, let us recognize that you have created an account and have logged in/out to access Site content. They also include Cookies that enable us to remember your previous actions within the same browsing session and secure our Sites</p>
+				
+				<li><span style="font-weight:bold;">Analytical/Performance.</span>				
+				<p>These Cookies are used by us or third-party service providers to analyse how the Sites are used and how they are performing. For example, these Cookies track what type of articles are most frequently visited and which locations we receive most of our visitors from. If you subscribe to a newsletter or otherwise register with the Sites, these Cookies may be correlated to you. These Cookies include, for example, Google Analytics cookies.</p>
+				
+
+				<li><span style="font-weight:bold;">Functionality.</span>			
+				<p>These Cookies let us operate the Sites in accordance with the choices you make. These Cookies permit us to "remember" you in-between visits. For instance, we will recognize your user name and remember how you customized the Sites and services, for example by adjusting text size, fonts, languages and other parts of web pages that are alterable, and provide you with the same customizations during future visits.</p>
+				
+				<li><span style="font-weight:bold;">Targeting or Advertising Cookies.</span>				
+				<p>These cookies are used to deliver content that is more relevant to you and your interests. They are also used to deliver targeted advertising or limit the number of times you see an advertisement as well as help measure the effectiveness of the advertising campaigns on our websites. They remember that you have visited one of our websites and this information is shared with other parties, including advertisers and our agencies. These cookies may also be linked to site functionality provided by third-parties.</p>	
+				
+				<li><span style="font-weight:bold;">Third-Party Cookies.</span>			
+				<p>when you visit our websites to allow them to deliver tailored advertising within their domains, for example Facebook and Google DoubleClick. We endeavour to identify these cookies before they are used so that you can decide whether you wish to accept them or not. We also use a number of partners to provide digital experiences and functionalities on our websites. For example, while browsing our websites you may be served cookies from third-parties who provide some of its features on Our Websites (e.g., a YouTube video), although you have withdrawn or declined your consent to our cookies. This happens because you have directly given your consent to the use of their cookies. In such cases, you should directly withdraw your consent on the relevant third-party website.</p>							
+				</ol>
+				
+				<p><span style="font-weight:bold;">5. Do these cookies collect personal data/identify me?</span></p>
+				<p>Most types of cookies track consumers via their Device ID or IP address therefore they may collect personal data.
+Based on the type of cookies used by the relevant third-party, the information these cookies collect may include personal data but they may not be able to directly identify you as an individual or have any of your personal information such as Name, E-mail id or Mobile number.
+				</p>
+				
+				<p><span style="font-weight:bold;">6. How do I refuse or withdraw my consent to the use of Cookies?</span></p>
+				<p>If you do not want cookies to be dropped on your device, you can adjust the setting of your Internet browser to reject the setting of all or some cookies and to alert you when a cookie is placed on your device. For further information about how to do so, please refer to your browser 'help' / 'tool' or 'edit' section for cookie settings with respect to your browser that may be Google Chrome, Safari, Mozilla Firefox etc.
+Please note that if your browser setting is already setup to block all Cookies (including strictly necessary Cookies) you may not be able to access or use all or parts of functionalities of our Sites.
+If you want to remove previously-stored Cookies, you can manually delete the Cookies at any time. However, this will not prevent the Sites from placing further Cookies on your device unless and until you adjust your Internet browser setting as described above.
+				</p>
+				
+				<p><span style="font-weight:bold;">7. More Information</span></p>
+				<p>More detail on how businesses use cookies is available at www.allaboutcookies.org.
+If you have any queries regarding this Cookie Policy please contact <span style="font-weight:bold; color:blue">Mr.Yogesh Jain at yogesh.jain@albertsons.in</span>
+				</p>												
+				
+				
+              <div class="br" style="padding-bottom:50px;"></div>
+              </div>		                
+      </div>
+    </section>
+    <!--================Blog Area =================-->
+
+    <!--================ start footer Area  =================-->
+   <br> <br>
+ <div th:replace="common/header :: footer"> </div> 
+   <!--================ End footer Area  =================-->
+
+  </body>
+
+</html>

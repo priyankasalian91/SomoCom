@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org./1999/xhtml" xmlns:sec="http://www.w3.org./1999/xhtml">
+<head th:replace="common/header :: common-header" />
+<body>
+
+  <div th:replace="adminHome :: navbarAdmin"> </div>
+  
+  <div class="container page-content"> 
+    <form th:action="@{/payment/update}" method="post" enctype="multipart/form-data">
+       <fieldset>
+        <legend class="center-block">
+          Update Payment Details
+        </legend>
+              
+   
+        <input hidden="hidden" name="id" th:value="${order.id}">
+        
+     <div class="form-group row">
+          <label for="title" class="col-2 col-form-label text-right">Order ID</label>
+          <div class="col-6">
+            <input th:value="${order.id}" type="text" class="form-control" readonly="readonly">
+          </div>
+        </div>
+         
+                      <div class="form-group row">
+                        <label for="type" class="col-2 col-form-label text-right">Select Payment Type: </label>
+                        <div class="col-6">
+                        <select class="form-control" id="type" name="type">
+                          <option value=""></option>
+                          <option value="cash">Cash</option>
+                          <option value="cheque">Cheque</option>
+                        </select>
+                        </div>
+                      </div>
+
+
+                      <div class="form-group row">
+                        <label for="draweename" class="col-2 col-form-label text-right">Drawee Name:</label>
+                         <div class="col-6"> 
+                        <input  th:value="${payment.draweename}" type="text" class="form-control" id="draweename"  th:name="draweename">
+                      </div>
+                      </div>
+                       <div class="form-group row">
+                        <label for="draweebank" class="col-2 col-form-label text-right">Drawee Bank Name:</label> 
+                         <div class="col-6">
+                        <input  th:value="${payment.draweebank}" type="text" class="form-control" id="draweebank"  th:name="draweebank">
+                      </div>
+                      </div>
+                       <div class="form-group row">
+                        <label for="draweeifsc" class="col-2 col-form-label text-right">Drawee Bank IFSC:</label> 
+                         <div class="col-6">
+                        <input  th:value="${payment.draweeifsc}" type="text" class="form-control" id="draweeifsc"  th:name="draweeifsc">
+                      </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="chequeNo" class="col-2 col-form-label text-right">Cheque Number:</label>
+                         <div class="col-6">
+                         <input th:value="${payment.chequeNo}" type="text" class="form-control" id="chequeNo" th:name="chequeNo">
+                      </div>
+                      </div>
+            
+       
+                  <div class="form-group row">
+          			<div class="offset-2 col-6">
+          			<button type="submit" class="btn btn-success">Update Payment Details</button>
+              		<a class="btn btn-danger" th:href="@{/payment/show-orders}">Cancel</a>
+         			 </div>
+       			 </div>               
+
+                  
+        
+       </fieldset>
+    </form>             
+  </div> <!--  end container -->
+  
+  <div th:replace="common/header :: body-scripts"> </div>
+  <script src="/js/tagsinput-custom.js"></script>
+  
+</body>
+</html>

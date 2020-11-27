@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org./1999/xhtml" xmlns:sec="http://www.w3.org./1999/xhtml">
+<head th:replace="common/header :: common-header">
+
+ <style>
+    	
+        .propTable { width: 100%; }
+        .propTable, th, td { border: solid 1px #DDD;
+            border-collapse: collapse; padding: 2px 3px; text-align: center;
+        }
+    </style>
+    <head/>
+<body onload="createTable()">
+
+  <div th:replace="adminHome :: navbarAdmin"> </div>
+
+  <div class="container page-content">
+    <form th:action="@{/article/add}" method="post" enctype="multipart/form-data" id="addArticle">
+      <fieldset class="border p-2">
+        <legend class="w-auto font-weight-bold d-block"> Basic Information </legend>
+              
+        <div class="form-group row">
+          <label for="title" class="col-2 col-form-label text-right">Title</label>
+          <div class="col-6">
+            <input type="text" class="form-control" id="title" name="title">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="category" class="col-2 col-form-label text-right">Category</label>
+          <div class="col-6">
+            <input type="text" class="form-control" id="categories" name="category" data-role="tagsinput">
+          </div>
+<!--           <div class="col-4"> -->
+<!--             <button type=button class="btn btn-primary btn-category badge badge-pill badge-primary mr-1 mb-1" th:each="item : ${allCategories}"  -->
+<!--             th:text="${item}" th:id="item+${category}"></button>            -->
+<!--           </div>  -->
+                   
+        </div>
+     
+        <div class="form-group row">
+          <label for="brand" class="col-2 col-form-label text-right">Sizes</label>
+          <div class="col-6">
+            <input type="text" class="form-control" id="sizes" name="size" data-role="tagsinput">
+          </div>
+
+        </div>
+        <div class="form-group row">
+          <label for="brand" class="col-2 col-form-label text-right">Brand</label>
+          <div class="col-6">
+            <input type="text" class="form-control" id="brands" name="brand" data-role="tagsinput">
+          </div>
+
+        </div>
+        <div class="form-group row">
+          <label for="price" class="col-2 col-form-label text-right">Price (Offer )</label>
+          <div class="col-6 input-group">
+            <div class="input-group-prepend">
+             <span class="input-group-text" id="basic-addon1"><i class="fa fa-rupee"></i></span>
+            </div>
+            <input th:value="${article.price}" type="number" name="price" step="0.1"
+  				class="form-control" id="price" placeholder="List Price" />
+          </div>
+        </div>
+        
+        <div class="form-group row">
+          <label for="mrpPrice" class="col-2 col-form-label text-right">MRP</label>
+          <div class="col-6 input-group">
+            <div class="input-group-prepend">
+             <span class="input-group-text" id="basic-addon1"><i class="fa fa-rupee"></i></span>
+            </div>
+            <input th:value="${article.mrpPrice}" type="number" name="mrpPrice" step="0.1"
+  				class="form-control" id="mrpPrice" placeholder="MRP" />
+          </div>
+        </div>
+        
+         <div class="form-group row">
+          <label for="transferPrice" class="col-2 col-form-label text-right">Transfer Price</label>
+          <div class="col-6 input-group">
+            <div class="input-group-prepend">
+             <span class="input-group-text" id="basic-addon1"><i class="fa fa-rupee"></i></span>
+            </div>
+            <input th:value="${article.transferPrice}" type="number" name="mrpPrice" step="0.1"
+  				class="form-control" id="transferPrice" placeholder="Transfer Amount" />
+          </div>
+        </div>
+        
+        
+        <div class="form-group row">
+          <label for="stock" class="col-2 col-form-label text-right">Available stock</label>
+          <div class="col-6">
+            <input th:value="${article.stock}" type="number"
+                        name="stock" class="form-control" id="stock"
+                        placeholder="Number of in-stock" />
+          </div>
+        </div>       
+        
+    </fieldset>
+   <fieldset class="border p-2">
+        <legend class="w-auto font-weight-bold d-block"> Product Details </legend>
+        
+        <div class="form-group row">
+          <label for="description" class="col-2 col-form-label text-right">Description</label>
+          <div class="col-6">
+            <textarea name="description" rows="10" cols="65" id="description" ></textarea>
+          </div>
+        </div>
+       <div class="form-group row">
+        <label for="stock" class="col-2 col-form-label text-right">Technical Details</label>
+          <div class="col-6">
+			<input type="button" style="color: #fff;background-color: #007bff;border-color: #007bff;" value="Add New Row" onclick="addRow()"/> <!-- Add New Row </button> -->
+		    	<div id="cont"></div>  <!-- the container to add the TABLE -->
+				<p id='output'></p>
+			    </div> 
+           </div>  
+          <input hidden="hidden" name="techdetails" id="techdetails" />
+          
+          
+           <input hidden="hidden" name="volume" th:value="0.0">
+           <input hidden="hidden" name="gst" th:value="0.0">
+           <input hidden="hidden" name="weight" th:value="0.0">
+           <input hidden="hidden" name="unitlength" th:value="0.0">
+           <input hidden="hidden" name="unitwidth" th:value="0.0">
+           <input hidden="hidden" name="unitdepth" th:value="0.0">
+          
+          
+      
+          
+          
+          
+          
+    </fieldset>       
+      <fieldset class="border p-2">
+        <legend class="w-auto font-weight-bold d-block"> Image Details </legend>     
+         <div class="form-group row">
+          <label for="picture" class="col-2 col-form-label text-right">Hero image upload</label>
+             <div class="col-6">
+                 <input type="file" name="heroimage" id="fileupload" th:onblur="getpropValue()" /><br/><br/>
+             </div>
+        </div>    
+        
+        
+          <div class="form-group row">
+          <label for="picture" class="col-2 col-form-label text-right">More images upload</label>
+             <div class="col-6">
+                 <input type="file" name="moreimages" id="moreimages" multiple="multiple" /><br/><br/>
+             </div>
+        </div>  
+        
+        <div class="form-group row">
+          <div class="offset-2 col-6">
+        	  <button type="submit" class="btn btn-success">Add Article</button> 
+              <a class="btn btn-danger" th:href="@{/article-list}">Cancel</a>
+          </div>
+        </div>
+    </fieldset>
+  </form>
+  </div>
+
+
+
+  <div th:replace="common/header :: body-scripts"> </div>
+
+  
+  <script type="text/javascript">
+  //$(document).ready(function(){
+/* $(window).on('load', function() {
+	  createTable();
+ });
+ */
+	
+  var arrHead = new Array();	// array for header.
+ // arrHead = ['', 'Employee Name', 'Designation', 'Age'];
+  arrHead = ['', 'Property Name', 'Details'];
+  // first create TABLE structure with the headers. 
+  function createTable() {
+      var propTable = document.createElement('table');
+      propTable.setAttribute('id', 'propTable'); // table id.
+
+      var tr = propTable.insertRow(-1);
+      for (var h = 0; h < arrHead.length ; h++) {
+          var th = document.createElement('th'); // create table headers
+          th.innerHTML = arrHead[h];
+          tr.appendChild(th);
+      }
+
+      var div = document.getElementById('cont');
+      div.appendChild(propTable);  // add the TABLE to the container.
+  }
+
+  // now, add a new to the TABLE.
+  function addRow() {
+      var propTab = document.getElementById('propTable');
+
+      var rowCnt = propTab.rows.length;   // table row count.
+      var tr = propTab.insertRow(rowCnt); // the table row.
+      tr = propTab.insertRow(rowCnt);
+
+      for (var c = 0; c < arrHead.length; c++) {
+          var td = document.createElement('td'); // table definition.
+          td = tr.insertCell(c);
+
+          if (c == 0) {      // the first column.
+              // add a button in every new row in the first column.
+              var button = document.createElement('input');
+
+              // set input attributes.
+              button.setAttribute('type', 'button');
+              button.setAttribute('value', 'Remove');
+
+              // add button's 'onclick' event.
+              button.setAttribute('onclick', 'removeRow(this)');
+
+              //adding style to button
+              button.setAttribute('style','color: #fff;background-color: #007bff;border-color: #007bff;'); 
+            		   
+              td.appendChild(button);
+          }
+          else {
+              // 2nd, 3rd and 4th column, will have textbox.
+              var ele = document.createElement('input');
+              ele.setAttribute('type', 'text');
+              ele.setAttribute('value', '');
+
+              td.appendChild(ele);
+          }
+      }
+  }
+
+  // delete TABLE row function.
+  function removeRow(oButton) {
+      var propTab = document.getElementById('propTable');
+      propTab.deleteRow(oButton.parentNode.parentNode.rowIndex); // button -> td -> tr.
+  }
+
+  // function to extract and submit table data.
+  function submit() {
+      var myTab = document.getElementById('propTable');
+      var arrValues = new Array();
+
+      // loop through each row of the table.
+      for (row = 1; row < myTab.rows.length - 1; row++) {
+      	// loop through each cell in a row.
+          for (c = 0; c < myTab.rows[row].cells.length; c++) {  
+              var element = myTab.rows.item(row).cells[c];
+              if (element.childNodes[0].getAttribute('type') == 'text') {
+                  arrValues.push("'" + element.childNodes[0].value + "'");
+              }
+          }
+      }
+      
+      // The final output.
+      document.getElementById('output').innerHTML = arrValues;
+      console.log (arrValues);   // you can see the array values in your browsers console window. Thanks :-) 
+      $('#propdetails').val(arrValues);
+  }
+  
+
+  // function to extract and submit table data.
+  function getpropValue() {
+      var myTab = document.getElementById('propTable');
+      var arrValues = new Array();
+
+      // loop through each row of the table.
+      for (row = 1; row < myTab.rows.length - 1; row++) {
+      	// loop through each cell in a row.
+          for (c = 0; c < myTab.rows[row].cells.length; c++) {  
+              var element = myTab.rows.item(row).cells[c];
+              if (element.childNodes[0].getAttribute('type') == 'text') {
+                  arrValues.push("'" + element.childNodes[0].value + "'");
+              }
+          }
+      }
+      
+      // The final output.
+      //document.getElementById('output').innerHTML = arrValues;
+      //console.log (arrValues);   // you can see the array values in your browsers console window. Thanks :-) 
+      //alert("HELL-O !");
+      $('#techdetails').val(arrValues);
+    
+    
+  }
+  
+
+ 
+/*  $("#fileuploadtest").change(function () {
+      var file = ($(this).val());
+      if (window.File && window.FileReader && window.FileList && window.Blob) {
+          //get the file size and file type from file input field
+          var fsize = $('#fileuploadtest')[0].files[0].size;
+
+          if (fsize > 1000000) //do something if file size more than 0.097656 mb (102400)
+          {
+              alert(fsize + " bytes\n Image size too big! You can upload images with only 10 MB size");
+          }
+      } else {
+          alert("Please upgrade your browser, because your current browser lacks some new features we need!");
+      }
+      if (file != null) {
+    	  alert(file);
+          var extension = file.substr((file.lastIndexOf('.') + 1));
+          switch (extension) {
+              case 'jpg':
+              case 'jpeg':
+                  flag = true;
+                  break;
+              default:
+                  flag = false;
+          }
+      }
+      if (flag == false) {
+         alert("You can upload only jpg , jpeg extension file");
+          return false;
+      }
+      else {
+          $('#Error2').html("");
+      }
+  });
+*/
+
+  </script>
+
+</body>
+</html>

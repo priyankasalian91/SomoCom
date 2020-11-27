@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org./1999/xhtml" xmlns:sec="http://www.w3.org./1999/xhtml">
+<meta charset = "utf-8" /> 
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<meta name="description" content="Somodesk is a B2B and B2C e-commerce platform with a difference. Sell more with a trusted Affiliate network">
+<meta name="keywords" content="Affiliate franchisee e-commerce Somodesk B2B B2C INDIA unique products">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<head>
+    <title>Somodesk E-commerce Site</title> 
+   <link rel="icon" href="/image/logos/somodesk-logo.png" type="image/png"> 
+   <link rel="stylesheet" href="/css/elegant-icons.css" type="text/css">
+
+
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style>
+ul.demo {
+  list-style-type: none;
+}
+ul.a {list-style-type: square;}
+ul.c {list-style-type: upper-roman;}
+ul.d {list-style-type: lower-alpha;}
+  
+.full-width {
+  width: 100%;
+  height: 350px;
+  position: relative;
+}
+
+ .nav1 {
+    margin-bottom:0;
+}
+/* ------- navigation bar --------------------------------- */
+.topnav {
+  overflow: hidden;
+ /* background-color: #333;*/
+  background-color: white;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #007bff;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+  
+}
+
+.topnav a.active {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav .logo {
+  float: left;
+  display:block;
+}
+
+.topnav .nav-right {
+  float: right;
+  display: block;
+  color: #007bff;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  /*.topnav a:not(:first-child) {display: none;}*/
+  .topnav a{display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+
+</style>
+</head>
+    
+  
+  <body id="service">
+    <!-- Single Navigation bar-->
+<div class="topnav" id="myTopnav">
+<div class="container-fluid">
+<div class="row">
+<div class="col-sm-2">
+<span class="logo"><img src="/image/logos/somodesk-logo.png" alt="LOGO" style="width:50px;height:40px"><img src="/image/logos/somodesk-txt3.png" alt="NAME"></span>
+</div>
+ <div class="col-sm-7">
+  <a th:href="@{/}">Home</a>
+ <!-- <a th:href="@{/wip}">Cherise</a> --> 
+   <a th:href="@{/brands}">Brands</a>          
+  <a th:href="@{/store}">All Products</a>
+  <a th:href="@{/aboutus}">About Us</a>          
+ <!--   <li><a th:href="@{/wip}" class="nav-link">About Us</a></li>--> 
+  <!-- <li  class="nav-item"><span class="icon_search search-switch nav-link"></span></li>-->
+  <!--  <li><a th:href="@{/wip}" class="nav-link"><span class="icon_heart_alt"></span></a></li>-->
+  <a th:href="@{/shopping-cart/cart}" th:if="${shoppingCartItemNumber} > 0" data-toggle="tooltip" data-placement="bottom" title="Shopping Cart">
+	<span class="icon_bag_alt"></span><span class="tip" th:text="${shoppingCartItemNumber}"></span>
+  </a>
+  <a sec:authorize="hasRole('ADMIN')"  th:href="@{/article/article-list}" data-toggle="tooltip" data-placement="bottom" title="Admin Portal"><i class="fa fa-user-plus" aria-hidden="true"></i></a>
+</div>
+ <div class="col-sm-3">
+  <i><a sec:authorize="isAnonymous()" th:href="@{/ecom_login}">Login</a></i>
+  <i><a sec:authorize="isAuthenticated()" th:href="@{/logout}">Logout</a></i>
+  <a sec:authorize="isAuthenticated()" th:href="@{/my-profile}" data-toggle="tooltip" data-placement="bottom" title="My Account"><i class="fa fa-user"></i> Welcome, <span sec:authentication="name"></span></a>
+</div>  
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="fa fa-bars"></i> </a>
+</div>
+</div>
+</div>
+
+
+ <br>
+ 
+ 
+    <section class="blog_area single-post-area"> 
+       <div class="container">
+          <div>
+  		<img class="full-width" src="/image/home/returnpolicy.jpg"  />
+	</div>
+               <div  id="hideDetails">
+                <h2 style="margin-top: 20px;">CANCELLATION, RETURN & REFUND POLICY</h2>
+                 <p><a class="fa fa-home" style="color: blue;" href="/"> Home</a> / Return and Refund Policy</p>
+                <p class="excert">
+               <p>The sole responsibility in terms of cancellation and refunds lies with Somodesk. Before purchasing products / services, we ask you to carefully review your selection and review the cancellation policy, set forth by Somodesk. It is the responsibility of the Somodesk to communicate its  cancellation and refund policy to you and to issue you refunds via the Service or otherwise. In addition, somodesk reserves the right to restrict refund to certain items which are delicate, breakable, cannot be safely repacked or unsafe for return transit.</p>
+                 
+				<p>If you wish to request a refund, you should contact the Somodesk directly. You hereby agree that you will not attempt to evade, avoid, or circumvent any refund prohibitions in any manner with regard to products / services you purchased.  Incase of any attempt to falsely claim refund, Somodesk reserves the right of seizure and cancellation without compensation that the Somodesk determines, in its sole discretion, to be in violation of any of the terms of this Agreement.</p>
+              	<p>Please convey your concerns and queries directly to Somodesk under such circumstances: <br>
+              	<span style="font-weight:bold; color:blue">info@somodesk.com</span> </p>
+  								
+				<p><span style="font-weight:bold;">Cancellation</span></p>
+				<p>Cancellation of order allowed upto 3 hours from the time of payment at no charge.Beyond 3 hours, cancellation charges will apply based on execution status viz: Communicated to supplier, Packed, Invoiced, Logistics call, Shipped.You may cancel the order which has not been shipped by the supplier.The shipping details are updated by the end of the day.</p>
+				<p>Somodesk will try to accommodate a genuine request at no charge. However, it will depends on costs incurred by supplier and their willingness accept cancellation without charge.</p>
+			
+							
+				<p><span style="font-weight:bold;font-size:16px;">Easy 7 days refund or replacement.</span></p>
+			    <p><span style="font-weight:bold;">Return & Refund:</span></p>
+				<p>Every product is expected to arrive at your doorstep in great condition.However there may be instance of transit stress which may result in arrival of product in unexpected condition.</p>
+				<p>Ensure packing is not tampered before providing acknowledgement to courier. Acknowledged courier document will imply packing was intact during receipt.</p>
+				<p>If you are not happy with your purchase; wrong or damaged product is delivered, then it has to be informed to us with images within 2 days from date of delivery. We will accept returns and exchanges on unused or unopened products within 7 days of purchase. Refund procedure is commenced only after receipt of product by supplier.</p>
+				<p>If you dislike the product received, you can follow below steps to send the product to us:
+					<ol class="c">
+					<li>You can return the item to us within seven days from the delivery date.</li>
+					<li>We will send a replacement or initiate a refund for the product to your source account once we receive the product.</li>
+					<li>You will bear the shipping charges to return the product.</li>
+					</ol>
+				</p>	
+				<p>Opened parcel will require supplier inspection before decision to replace on return or refund or reject. The supplier will have to be convinced for the reason of return. 
+					We will initiate a refund or send the replacement product accordingly. Supplier must receive the product duly packed, back for inspection to make decision for replacement or refund.  </p>
+				<p>The return address will be that of the supplier and advisable to use the same courier. Food items with short expiry and items marked non-refundable will not be accepted for refund.</p>
+				<p>The Refund amount will be paid by Somodesk within 2 days upon supplier`s decision to refund only after receipt of returned product. Deductions to recover cost of execution will apply. The decision of Somodesk with respect to Return and Refund will be final and binding on our customers.</p>
+				<p>The Refund amount will be credited back by Somodesk vide same tender as per the mode of payment receipt, after deduction of transaction cost, for cases, wherein somodesk or supplier is not at fault.</p>
+				<p>Simply reach out to our customer support team at <span style="font-weight:bold; color:blue">info@somodesk.com</span> to start the process.</p>												
+				
+				
+              <div class="br" style="padding-bottom:50px;"></div>
+              </div>		                
+      </div>
+    </section>
+    <!--================Blog Area =================-->
+
+    <!--================ start footer Area  =================-->
+   <br> <br>
+ <div th:replace="common/header2 :: footer"> </div> 
+   <!--================ End footer Area  =================-->
+
+  </body>
+
+</html>

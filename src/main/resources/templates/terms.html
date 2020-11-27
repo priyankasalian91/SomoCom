@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org./1999/xhtml" xmlns:sec="http://www.w3.org./1999/xhtml">
+<meta charset = "utf-8" /> 
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<meta name="description" content="Somodesk is a B2B and B2C e-commerce platform with a difference. Sell more with a trusted Affiliate network">
+<meta name="keywords" content="Affiliate franchisee e-commerce Somodesk B2B B2C INDIA unique products">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<head>
+  <title>Somodesk E-commerce Site</title> 
+   <link rel="icon" href="/image/logos/somodesk-logo.png" type="image/png"> 
+   
+   <link rel="stylesheet" href="/css/elegant-icons.css" type="text/css">
+
+
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style>
+ul.demo {
+  list-style-type: none;
+}
+ul.a {list-style-type: square;}
+ul.c {list-style-type: upper-roman;}
+ul.d {list-style-type: lower-alpha;}
+
+.full-width {
+  width: 100%;
+  height: 350px;
+  position: relative;
+}
+
+ .nav1 {
+    margin-bottom:0;
+}
+/* ------- navigation bar --------------------------------- */
+.topnav {
+  overflow: hidden;
+ /* background-color: #333;*/
+  background-color: white;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #007bff;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+  
+}
+
+.topnav a.active {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav .logo {
+  float: left;
+  display:block;
+}
+
+.topnav .nav-right {
+  float: right;
+  display: block;
+  color: #007bff;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  /*.topnav a:not(:first-child) {display: none;}*/
+  .topnav a{display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+
+</style>
+</head>
+    
+  
+  <body id="service">
+    <!-- Single Navigation bar-->
+<div class="topnav" id="myTopnav">
+<div class="container-fluid">
+<div class="row">
+<div class="col-sm-2">
+	<span class="logo"><img src="/image/logos/somodesk-logo.png" alt="LOGO" style="width:50px;height:40px"><img src="/image/logos/somodesk-txt3.png" alt="NAME"></span>
+</div>
+ <div class="col-sm-7">
+  <a th:href="@{/}">Home</a>
+ <!-- <a th:href="@{/wip}">Cherise</a> --> 
+   <a th:href="@{/brands}">Brands</a>          
+  <a th:href="@{/store}">All Products</a>
+  <a th:href="@{/aboutus}">About Us</a>          
+ <!--   <li><a th:href="@{/wip}" class="nav-link">About Us</a></li>--> 
+  <!-- <li  class="nav-item"><span class="icon_search search-switch nav-link"></span></li>-->
+  <!--  <li><a th:href="@{/wip}" class="nav-link"><span class="icon_heart_alt"></span></a></li>-->
+  <a th:href="@{/shopping-cart/cart}" th:if="${shoppingCartItemNumber} > 0" data-toggle="tooltip" data-placement="bottom" title="Shopping Cart">
+	<span class="icon_bag_alt"></span><span class="tip" th:text="${shoppingCartItemNumber}"></span>
+  </a>
+  <a sec:authorize="hasRole('ADMIN')"  th:href="@{/article/article-list}" data-toggle="tooltip" data-placement="bottom" title="Admin Portal"><i class="fa fa-user-plus" aria-hidden="true"></i></a>
+</div>
+ <div class="col-sm-3">
+  <i><a sec:authorize="isAnonymous()" th:href="@{/ecom_login}">Login</a></i>
+  <i><a sec:authorize="isAuthenticated()" th:href="@{/logout}">Logout</a></i>
+  <a sec:authorize="isAuthenticated()" th:href="@{/my-profile}" data-toggle="tooltip" data-placement="bottom" title="My Account"><i class="fa fa-user"></i> Welcome, <span sec:authentication="name"></span></a>
+</div>  
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()"><i class="fa fa-bars"></i> </a>
+</div>
+</div>
+</div>
+
+
+ <br>
+ 
+ 
+    <section class="blog_area single-post-area"> 
+       <div class="container">
+          <div>
+  		<img class="full-width" src="/image/home/terms.jpg"  />
+	</div>
+               <div  id="hideDetails">
+                <h2 style="margin-top: 20px;">TERMS & CONDITIONS OF SERVICE</h2>
+                 <p><a class="fa fa-home" style="color: blue;" href="/"> Home</a> / Terms & Conditions</p>
+                <p class="excert">
+                <p>Albertsons International Pvt. Ltd. <span style="font-weight:bold; color:black">("we", "us", "Somodesk")</span> operates  somodesk.com and somodesk.in (“Site”) and is making it available to you subject to these evolving Terms and Conditions of Service ("<span style="font-weight:bold; color:black">T&C</span>").</p>
+                <p>Welcome to somodesk.com, we provide you website features, products and services, when you visit or shop at somodesk.com, use Somodesk services, use software provided by Somodesk for ecommerce or use Somodesk applications on desktop, laptop or mobile device, the T&C governs your access to the use of Somodesk services available via the site. The site includes Somodesk`s related websites, WApp, SMS, APIs, email notifications, applications, buttons, widgets, ads, commerce services, and any other related services that can be accessed via our site or that link to these T&C ( collectively referred to as “Services” and any information, text, links, graphics, photos, videos, or other materials or arrangements of materials uploaded, downloaded or appearing on the Services (collectively referred to as "<span style="font-weight:bold; color:black">Content</span>"). By using the Somodesk Site and Services you agree to be bound by these T&C. Since these T&C are evolving, expect frequent changes to them, and with such changes, your use, rights and privacy expectations may also change.</p>
+				<p>In the event of inconsistency between any terms of this contract and any translation into another language, the English version will control and prevail on any question of interpretation or otherwise.</p>
+				<p><span style="font-weight:bold;">1. Use of Site and Services.</span></p>
+				<p>If you agree to these T&C then you can use the Site and Services. However, if your mind is legally incapacitated (mental disability, intoxication, under the age of 14, etc.) for any reason, then you are not allowed to use the Somodesk Site and Services. For those who are accepting these T&C and using the Somodesk Site and Services on behalf of a company, organization, government, or other legal entity, you represent and warrant that you are authorized to do so.</p>
+                 
+				<p><span style="font-weight:bold;">2. Privacy.</span></p>
+              	<p>Our Privacy Policy, describes how we collect, process, store and share the information you provide to us when you use our Site and Services. You acknowledge that through your use of the Services, your personal data will be collected and used (as set forth in the Privacy Policy), including the transfer of your data within the country for storage, processing and use by Somodesk, its Affiliates, Alliance Partners, Associate partners, vendors and it’s Franchisees.</p>
+								
+				<p><span style="font-weight:bold;">3. Content on the Services.</span></p>
+				<p>You are responsible for your use of the Somodesk Site and Services and for any Content you provide, including compliance with applicable laws, rules, and regulations. Don’t hit the submit/send button, unless you are prepared to be held accountable for your Content.</p>
+				<p>Like with any content published via the Internet, you must consider the source of the Content or materials before using or relying upon it. Your use of the Content and Somodesk Site are at your own risk.</p>
+				<p>Albertsons International Pvt. Ltd.  is the intellectual property owner and understands the costs and expenses in developing and maintaining intellectual property. Somodesk also respects the intellectual property rights of others and expects its users of the Somodesk Site and Services to do the same. Users of the Services will operate in a lawful, ethical and professional manner. Users shall conduct themselves in a fair, responsible and businesslike manner at all times and will avoid any discourteous, deceptive, misleading or unethical practices. You are solely responsible for any comments or posts you leave on our Site, blogs or any Somodesk site. Somodesk does not control content posted and does not guarantee the accuracy, integrity or quality of the content. In using the Site or the Services you may be exposed to content that you may find offensive, indecent or objectionable. Under no circumstances will Somodesk be liable in any way for any content, including but not limited to any errors or omissions in any content or any loss or damage of any kind incurred as a result of the use of any content posted or otherwise made available via the Site or the Services.</p>
+				
+  				<p>Examples of unethical or unlawful activities include, but are not limited to the following:</p>
+              		<ul class="a">
+					<li>Examples of unethical or unlawful activities include, but are not limited to the following:</li>				
+					<li>Any unauthorized use of the name, logo, trademark or copyrighted material of  Somodesk, its affiliated entities or any other person or entity;</li>
+					<li>Violation of any central, state or local laws or regulations;</li>
+					</ul>	
+			
+				
+				<p>You bear all risks associated with the use of any content on the Somodesk site or in connection with the Services including any reliance on the accuracy, completeness, or usefulness of such content.</p>
+				<p>You acknowledge that Somodesk may access, preserve and disclose your information if required to do so by law or in a good faith belief that such access preservation or disclosure is reasonably necessary to: 
+				   <ul class="d">
+					<li>comply with legal process;</li>				
+					<li>enforce the provisions of this T&C;</li>
+					<li>respond to claims that any content violates the rights of third parties; </li>
+					<li>respond to your requests for customer service; or</li>
+					<li>protect the rights, property or personal safety of Somodesk, its users and the public.</li>
+				   </ul>
+				  </p>
+				 <p>The Services and software embodied within the Service may include security components that permit digital materials to be protected. The use of these materials is subject to usage rules set by Somodesk and/or its technology providers. You may not attempt to override or circumvent any of the usage rules embedded in the Services.</p>
+				
+ 				
+ 				<p><span style="font-weight:bold;">4. Electronic Communications</span></p>
+				<p>When you use somodesk Services, or send e-mails, text messages, and other communications from your desktop or mobile device to us, you may be communicating with us electronically. You consent to receive communications from us electronically, such as e-mails, texts, mobile push notices, or notices and messages on this site or through the other somodesk Services, such as our Message Center, and you can retain copies of these communications for your records. You agree that all agreements, notices, disclosures, and other communications that we provide to you electronically satisfy any legal requirement that such communications be in writing.</p>	
+					
+			
+				<p><span style="font-weight:bold;">5. Product Descriptions</span></p>
+				<p>The product descriptions are as shared by the supplier. Somodesk  attempts to be as accurate as possible. However, somodesk does not warrant that product descriptions or other content is accurate, complete, reliable, current, or error-free.</p>
+				
+				<p><span style="font-weight:bold;">6. Prices, Charges and Payments</span></p>
+				<p>"MRP" means the Max. retail price of a product as provided by a manufacturer, supplier, or seller, which includes logistics and relevant GST. The Offer price is the present selling price available to you which includes logistics and relevant GST which means you do not pay anything extra other than payment made on the site. When you order a product or service you have an opportunity to review and accept the prices that will be charged. Prices, availability, and other purchase terms are subject to change. Somodesk reserves the right without prior notice to discontinue or change specifications and prices on services offered on and outside of the Somodesk Site without incurring any obligation to you. All charges will be subject to taxes.</p>
+				<p>You are responsible for providing true, accurate, current, and complete information when ordering product or services through the Somodesk Site or otherwise. If you use the Somodesk Site or other means to purchase a product or service, payment must be received prior to acceptance of an order. We will generally not accept payment until stocks are available for shipping by the supplier. Logistics is managed by the supplier themselves.</p>
+				<p>Somodesk may need to verify information you provide before Somodesk accepts your order, and may cancel or limit your order any time after it has been placed. Subject to our cancellation policy, if payment has already been made and your order is cancelled or limited, Somodesk will refund any payment you made for the service that will not be delivered due to cancellation or limitation of an order in the same tender as the original purchase.</p>
+				<p>If, for any reason, your credit card company declines or otherwise refuses to pay the amount owed for the service you have purchased, you agree that we may, at our option, suspend or terminate delivery of service and may require you to pay any overdue amounts incurred (including third-party chargeback fees or penalties) by other means acceptable to us. In the event legal action is necessary to collect on balances due, you agree to reimburse us for all expenses incurred to recover sums due, including attorney fees and other legal expenses.</p>
+				
+				<p><span style="font-weight:bold;">7. Risk of Loss</span></p>
+				<p>All purchases of physical items from Somodesk are made pursuant to a shipment contract. This means that the risk of loss is covered and safe delivery of all physical items purchased is the responsibility of the supplier. This has to be ensured by a shipment contract by the supplier with reputed courier / carrier.</p>												
+				
+				<p><span style="font-weight:bold;">8. Cancellation, Returns & Refunds</span></p>
+				<p>Somodesk does not take ownership to return items until the item arrives at our supplier. At our discretion, a refund may be issued without requiring a return. In this situation, Somodesk does not take ownership of  the refunded item. For more information  refer  our <a href="/return-policy">cancellation, returns and refunds policy</a>, posted on the site.</p>
+				
+				<p><span style="font-weight:bold;">9. Third Party Business</span></p>
+				<p>Alliance partners operate stores, offer products and services for sale on somodesk and deliver directly to customers. In the process of transacting business on Somodesk, customers come in touch or get aware of links with alliance partners / suppliers of products and services.  We request to refrain from direct purchase from them termed as third party business. If you purchase any of the products or services offered by these businesses or individuals, you are purchasing directly from those third parties, not from somodesk. We are not responsible for examining or evaluating, and we do not warrant, the offerings of any of these businesses or individuals. Somodesk does not assume any responsibility or liability for the actions, product, and content of all these and any other third parties.</p>
+				
+				<p><span style="font-weight:bold;">10. Intellectual Property</span></p>
+				<p>All content included on the Somodesk Site and in connection with the Services such as text, graphics, logos, button icons, images, audio clips, digital downloads, data compilations and software, is the property of Albertsons or its content suppliers and is protected by international copyright laws. All software used on the Site is the property of Somodesk or its software suppliers and is protected by international copyright laws. All of the trademarks, service marks, logos, brand and trade names appearing on the Site are the proprietary intellectual property of the owners of such marks, logos or names and you may not use, modify, remove or otherwise infringe any of such proprietary intellectual property. Albertsons retains full ownership rights with respect to the Site and the Services including but not limited to design, functionality, and documentation. You may not copy, edit, or reproduce any part of the Site or the Services.</p>
+				
+				<p><span style="font-weight:bold;">11. Indemnity and Defense</span></p>
+				<p>You will defend, indemnify and hold harmless Albertsons, Somodesk and its Affiliates, Alliances (and their respective employees, directors, agents and representatives) from and against any and all claims, costs, losses, damages, judgments, penalties, interest and expenses (including reasonable legal fees) that arise out of or relate to or arising in connection with: <br>
+				(i) a breach of these Terms by your use of the Site or the Services;<br>
+				(ii) any acts or alleged breach of your representations, warranties, or obligations set forth in this T&C;<br>
+				(iii) any claim brought against Somodesk that the Content or any services or software supplied by You infringe, violate, or trespass or constitute the unauthorized use or misappropriation of any intellectual property of any third party.</p>
+				
+				<p><span style="font-weight:bold;">12. Limitation of Liability</span></p>
+				<p>To the fullest extent provided by law, Somodesk assumes no responsibility and shall not be liable for any loss or Damages caused by viruses or other technologically harmful material that may infect your computer, mobile, programs, data or other proprietary material due to your access to, use of, or browsing in this site or your downloading of any materials, data, text, images, video or audio from the site. Somodesk will not be liable for direct or indirect damages of any kind, including without limitation incidental, punitive or consequential damage or loss arising out of or in connection with this T&C, the Site, the Services, inability to use the Site or the Services, or resulting from any goods or services obtained or messages received or transactions entered into through the Site or the Services. The liability will be limited to the charges or payment received by somodesk.</p>
+				
+				<p><span style="font-weight:bold;">13. Disclaimer of Warranties</span></p>
+				<ol class="c">
+					<li>The Platform is delivered over the Internet, and accordingly, is subject to limitations, delays, and other problems inherent in the use of the internet and electronic communications. Somodesk shall not be responsible for any delays, delivery failures, viruses, hacker intrusions or other damage resulting from such problems.</li>
+					<li>Somodesk makes no representation, warranty, or guarantee as to the reliability, timeliness, quality, suitability, truth, availability, accuracy or completeness of the Platform. Somodesk does not represent or warrant that:</li>
+					<ol class="d">
+					 <li>the use of the Platform will be secure uninterrupted or error free; or</li>
+					 <li>the Platform or the servers that make the services available are free of viruses or other harmful components. All conditions, representations and warranties, whether express, implied, statutory or otherwise, including, without limitation, any implied warranty of merchantability or fitness for a particular purpose, are hereby disclaimed by Somodesk to the maximum extent permitted by law.</li>
+				    </ol>
+				</ol>	
+				
+				<p><span style="font-weight:bold;">14. Third Party Websites</span></p>
+				<p>The Somodesk Site may redirect or link to other websites on the Internet, or may otherwise include references to information, products or services made available by unaffiliated third parties. While we make every effort to work with trusted, reputable providers, from time to time such sites may contain information, material or policies that some may find inappropriate or personally objectionable. You understand that we are not responsible for the accuracy, completeness, decency or legality of content hosted by third party websites, nor are we responsible for errors or omissions in any references made on those websites. The inclusion of such a link or reference is provided merely as a convenience and does not imply endorsement of, or association with the Site or party by us, or any warranty of any kind, either express or implied. You are solely responsible for and assume all risk arising from your access to and/or use of any such linked websites.</p>
+				
+				<p><span style="font-weight:bold;">15. Site Policies, Modifications and Severability</span></p>
+				<p>We reserve the right to make changes to our site, policies, Terms & Conditions of Use at any time. If any of these conditions shall be deemed invalid, void, or for any reason unenforceable, that condition shall be deemed severable and shall not affect the validity and enforceability of the remaining provisions of this T&C will remain in full force and effect.</p>
+				
+				<p><span style="font-weight:bold;">16. Waiver</span></p>
+				<p>Somodesk will not be considered to have waived any of rights or remedies described in this T&C unless the waiver is in writing and signed by Somodesk. No delay or omission by us in exercising our rights or remedies will impair or be construed as a waiver. Any single or partial exercise of a right or remedy will not preclude further exercise of any other right or remedy. Our failure to enforce the strict performance of any provision of this T&C will not constitute a waiver of Somodesk’s right to subsequently enforce such provision or any other provisions of this T&C.</p>
+				
+				<p><span style="font-weight:bold;">17. Relationship of Parties.</span></p>
+				<p>Somodesk is not your agent, fiduciary, trustee, or representative. Nothing expressed or implied in this T&C is intended or shall be construed to give to any person other than the parties hereto any legal or equitable right, remedy, or claim under or in respect to this T&C. This T&C is intended for the sole and exclusive benefit of Somodesk and you.</p>
+				
+				<p><span style="font-weight:bold;">18. Force Majeure.</span></p>
+				<p>In addition to any excuse provided by applicable law, we shall be excused from liability for non-delivery or delay in delivery of Services available through our Site arising from any event beyond our reasonable control, whether or not foreseeable by either party, including but not limited to: labor disturbance, war, fire, accident, adverse weather, inability to secure transportation, governmental act or regulation, and other causes or events beyond our reasonable control, whether or not similar to those which are enumerated above.</p>
+				
+				<p><span style="font-weight:bold;">19. Venue and Applicable Law.</span></p>
+				<p>The Somodesk Sites are created, operated and controlled by Albertsons International Pvt. Ltd. in India. The laws of India govern this T&C without giving effect to principles of conflicts of laws. Any action arising under this T&C shall be brought only in courts located in Mangalore, India which shall have exclusive jurisdiction and you consent to the exclusive jurisdiction of such courts.</p>
+				<p>These T&Cs are an agreement between you and Albertsons, Somodesk, If you have any questions about these T&C, please contact us at info@somodesk.in</p>
+				<p><span style="font-weight:bold;">Albertsons International Pvt. Ltd.</span><br>
+				<span>2nd Floor, “Parin” Collectors’ Gate, </span><br>
+				<span>Balmatta, Mangalore - 575 001.</span></p>
+				
+				<p><span style="font-weight:bold;">Effective/Last Updated: Nov. 01, 2020</span></p>
+				
+								
+				<p><span style="font-weight:bold;">VISITOR TERMS AND CONDITIONS</span></p>
+				<p>Welcome to our website. Somodesk is an Indian ecommerce portal with a difference under the aegis of Albertsons International Pvt. Ltd., a company registered and based out of Mangalore, India. The virtual platform is solely developed in India to fulfil dreams of Indians to be entrepreneurs and promote Made in India products / services contributing to Atmanirbhar. The participating Sellers/ Companies/ Manufacturers or Traders are suppliers known as Alliance Partners with whom Somodesk  has a pure commercial  agreement. Albertsons, the Platform provider or Somodesk do not have any authority over its Alliances for assurance of delivery of products or services as displayed or committed by them.</p>
+				<p>The Somodesk portal is  strictly for ecommerce purchase, trade & business only. Entry although open for everyone we expect visitors to be above 14 years of age. All visitors are required to register in the site. We will record your details in a secure database in order to keep a count, geo-location, record, generate statistics and to mail, email or SMS you updates about somodesk and any relevant information. </p>
+				<p>If you have any questions regarding the registration process, please view the Frequently Asked Questions.</p>
+				<ol class="a">
+				<li><span style="font-weight:bold;">Terms and conditions for website usage</span>
+				 <p>If you continue to browse and use this website you are agreeing to comply with and be bound by the following terms and conditions of use, which together with our privacy policy govern Somodesk's relationship with you in relation to this website.</p>
+				</li>
+				<li><span style="font-weight:bold;">The use of this website is subject to the following terms of use:</span>
+				 <ol class="d">
+				   <li><span>The content of the pages of this website is for your general information and use only. It is subject to change without notice.</span></li>
+				   <li>We do not provide any warranty or guarantee as to the accuracy, timeliness, performance, completeness or suitability of the information and materials found or offered on this website for any particular purpose. You acknowledge that such information and materials may contain inaccuracies or errors and we expressly exclude liability for any such inaccuracies or errors to the fullest extent permitted by law.</li>
+				   <li>Your use of any information or materials on this website is entirely at your own risk, for which we shall not be liable. It shall be your own responsibility to ensure that any products, services or information available through this website meet your specific requirements.</li>
+				   <li>This website contains material which is owned by or licensed to us. This material includes, but is not limited to, the design, layout, look, appearance and graphics. Reproduction is prohibited other than in accordance with the copyright notice, which forms part of these terms and conditions.</li>
+				   <li>Unauthorized use of this website may give rise to a claim for damages and/or be a criminal offence.</li>
+				   <li>From time to time this website may also include links to other websites. These links are provided for your convenience to provide further information. They do not signify that we endorse the website(s). We have no responsibility for the content of the linked website(s).</li>
+				   <li>Your use of this website and any dispute arising out of such use of the website is subject to Jurisdiction of Mangalore Court in accordance with the laws of India.</li>
+				   
+				 </ol>
+				 
+				</li>
+				<li><span style="font-weight:bold;">Business privacy policy</span>
+				 <p>This privacy policy sets out how Somodesk uses and protects any information that you give to us when you use this website.</p>
+				 <p>Somodesk is committed to ensuring that your privacy is protected. Should we ask you to provide certain information by which you can be identified when using this website, then you can be assured that it will only be used in accordance with this privacy statement.</p>
+				 <p>Somodesk may change this policy from time to time by updating this page. You should check this page from time to time to keep yourself abreast of updations.</p>
+				</li>
+			
+				</ol>
+				
+				
+				
+              <div class="br" style="padding-bottom:50px;"></div>
+              </div>		                
+      </div>
+    </section>
+    <!--================Blog Area =================-->
+
+    <!--================ start footer Area  =================-->
+   <br> <br>
+ <div th:replace="common/header2 :: footer"> </div> 
+   <!--================ End footer Area  =================-->
+
+
+  </body>
+
+</html>
